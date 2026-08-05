@@ -1,0 +1,2011 @@
+{
+  "site_settings": {
+    "name": "Vyro Gear Clothing Company",
+    "tagline": "Built for Work. Designed for Life.",
+    "hero_title": "Built for Work. Designed for Life.",
+    "hero_subtitle": "Premium print-on-demand apparel for arborists, outdoor enthusiasts, and wild souls.",
+    "contact_email": "info@vyrogear.com",
+    "currency": "USD",
+    "checkout_mode": "PRINTIFY_POPUP",
+    "static_only_mode": true
+  },
+  "collections": [
+    {
+      "id": "vyro-gear",
+      "name": "VYRO GEAR",
+      "tagline": "Built for Work. Designed for Life.",
+      "description": "Rugged outdoor-inspired apparel with Vyro Gear graphics for workdays, trail days, and everyday wear."
+    },
+    {
+      "id": "true-nature",
+      "name": "TRUE NATURE",
+      "tagline": "Rooted Differently. Stay Wild.",
+      "description": "Nature- and mycology-inspired apparel for slow mornings, camp nights, and everyday comfort."
+    },
+    {
+      "id": "overhang",
+      "name": "OVERHANG TREE CO.",
+      "tagline": "Climb With Respect. Built for Wood.",
+      "description": "Arborist-inspired apparel for climbers, tree crews, and people who respect the work."
+    }
+  ],
+  "products": [
+    {
+      "id": "vg-tee",
+      "name": "\"Built for Work\" Tee",
+      "brand": "vyro-gear",
+      "collection": "vyro-gear",
+      "description": "Short-sleeve tee with the VYRO GEAR arch logo and carabiner V graphic on a cream/natural base.",
+      "price": 28,
+      "image": "images/vyro-gear-built-for-work-tee-cream-front.jpg",
+      "printify_product_id": null,
+      "printify_url": null,
+      "status": "draft",
+      "featured": true,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "3XL"
+      ],
+      "colors": [
+        "Cream",
+        "Natural",
+        "White"
+      ],
+      "printify_url_verified": false,
+      "printify": {
+        "product_id": null,
+        "product_url": null,
+        "variants": [
+          {
+            "size": "S",
+            "color": "Cream",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Cream",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Cream",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Cream",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "Cream",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "3XL",
+            "color": "Cream",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "S",
+            "color": "Natural",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Natural",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Natural",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Natural",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "Natural",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "3XL",
+            "color": "Natural",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "S",
+            "color": "White",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "White",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "White",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "White",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "White",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "3XL",
+            "color": "White",
+            "variant_id": null,
+            "url": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "vg-trucker",
+      "name": "VYRO GEAR Trucker Hat",
+      "brand": "vyro-gear",
+      "collection": "vyro-gear",
+      "description": "Olive and black trucker hat with a VYRO GEAR carabiner V front graphic.",
+      "price": 25,
+      "image": "images/vyro-gear-trucker-hat-olive-front.jpg",
+      "printify_product_id": null,
+      "printify_url": null,
+      "status": "draft",
+      "featured": false,
+      "sizes": [
+        "One Size"
+      ],
+      "colors": [
+        "Olive/Black"
+      ],
+      "printify_url_verified": false,
+      "printify": {
+        "product_id": null,
+        "product_url": null,
+        "variants": [
+          {
+            "size": "One Size",
+            "color": "Olive/Black",
+            "variant_id": null,
+            "url": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "vg-snapback",
+      "name": "VYRO GEAR Snapback",
+      "brand": "vyro-gear",
+      "collection": "vyro-gear",
+      "description": "Structured snapback with a clean VYRO GEAR V logo and adjustable fit.",
+      "price": 25,
+      "image": "images/vyro-gear-snapback-hat-black-front.jpg",
+      "printify_product_id": null,
+      "printify_url": null,
+      "status": "draft",
+      "featured": false,
+      "sizes": [
+        "One Size"
+      ],
+      "colors": [
+        "Black",
+        "Charcoal"
+      ],
+      "printify_url_verified": false,
+      "printify": {
+        "product_id": null,
+        "product_url": null,
+        "variants": [
+          {
+            "size": "One Size",
+            "color": "Black",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "One Size",
+            "color": "Charcoal",
+            "variant_id": null,
+            "url": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "vg-field-hoodie",
+      "name": "\"Field Tested\" Hoodie",
+      "brand": "vyro-gear",
+      "collection": "vyro-gear",
+      "description": "Forest green hoodie with a shield-style pine, shovel, and compass graphic reading \"Trust the Land.\"",
+      "price": 45,
+      "image": "images/vyro-gear-field-tested-hoodie-forest-green-front.jpg",
+      "printify_product_id": null,
+      "printify_url": null,
+      "status": "draft",
+      "featured": true,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "3XL"
+      ],
+      "colors": [
+        "Forest Green",
+        "Black",
+        "Charcoal"
+      ],
+      "printify_url_verified": false,
+      "printify": {
+        "product_id": null,
+        "product_url": null,
+        "variants": [
+          {
+            "size": "S",
+            "color": "Forest Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Forest Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Forest Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Forest Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "Forest Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "3XL",
+            "color": "Forest Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "S",
+            "color": "Black",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Black",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Black",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Black",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "Black",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "3XL",
+            "color": "Black",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "S",
+            "color": "Charcoal",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Charcoal",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Charcoal",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Charcoal",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "Charcoal",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "3XL",
+            "color": "Charcoal",
+            "variant_id": null,
+            "url": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "vg-skull-hoodie",
+      "name": "\"Stay Rooted\" Skull Hoodie",
+      "brand": "vyro-gear",
+      "collection": "vyro-gear",
+      "description": "Terracotta hoodie with a skull, arborist helmet, rope, and morel mushroom graphic reading \"Made for the Wild.\"",
+      "price": 45,
+      "image": "images/vyro-gear-stay-rooted-skull-hoodie-terracotta-front.jpg",
+      "printify_product_id": null,
+      "printify_url": null,
+      "status": "draft",
+      "featured": false,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "3XL"
+      ],
+      "colors": [
+        "Terracotta",
+        "Sand",
+        "Charcoal"
+      ],
+      "printify_url_verified": false,
+      "printify": {
+        "product_id": null,
+        "product_url": null,
+        "variants": [
+          {
+            "size": "S",
+            "color": "Terracotta",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Terracotta",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Terracotta",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Terracotta",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "Terracotta",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "3XL",
+            "color": "Terracotta",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "S",
+            "color": "Sand",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Sand",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Sand",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Sand",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "Sand",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "3XL",
+            "color": "Sand",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "S",
+            "color": "Charcoal",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Charcoal",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Charcoal",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Charcoal",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "Charcoal",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "3XL",
+            "color": "Charcoal",
+            "variant_id": null,
+            "url": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "tn-morel-tee",
+      "name": "\"Stay Wild\" Morel Tee",
+      "brand": "true-nature",
+      "collection": "true-nature",
+      "description": "Cream tee with a morel mushroom, mountain, and sun circle graphic reading \"Float Free.\"",
+      "price": 28,
+      "image": "images/true-nature-stay-wild-morel-tee-cream-front.jpg",
+      "printify_product_id": null,
+      "printify_url": null,
+      "status": "draft",
+      "featured": true,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "3XL"
+      ],
+      "colors": [
+        "Cream",
+        "Natural",
+        "White"
+      ],
+      "printify_url_verified": false,
+      "printify": {
+        "product_id": null,
+        "product_url": null,
+        "variants": [
+          {
+            "size": "S",
+            "color": "Cream",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Cream",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Cream",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Cream",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "Cream",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "3XL",
+            "color": "Cream",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "S",
+            "color": "Natural",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Natural",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Natural",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Natural",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "Natural",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "3XL",
+            "color": "Natural",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "S",
+            "color": "White",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "White",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "White",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "White",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "White",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "3XL",
+            "color": "White",
+            "variant_id": null,
+            "url": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "tn-skull-sweat",
+      "name": "\"Rooted Differently\" Sweatshirt",
+      "brand": "true-nature",
+      "collection": "true-nature",
+      "description": "Black crewneck sweatshirt with a skull, mushroom, and foliage graphic.",
+      "price": 40,
+      "image": "images/true-nature-rooted-differently-skull-sweatshirt-black-front.jpg",
+      "printify_product_id": null,
+      "printify_url": null,
+      "status": "draft",
+      "featured": true,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "3XL"
+      ],
+      "colors": [
+        "Black",
+        "Charcoal",
+        "Sport Grey"
+      ],
+      "printify_url_verified": false,
+      "printify": {
+        "product_id": null,
+        "product_url": null,
+        "variants": [
+          {
+            "size": "S",
+            "color": "Black",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Black",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Black",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Black",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "Black",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "3XL",
+            "color": "Black",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "S",
+            "color": "Charcoal",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Charcoal",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Charcoal",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Charcoal",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "Charcoal",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "3XL",
+            "color": "Charcoal",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "S",
+            "color": "Sport Grey",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Sport Grey",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Sport Grey",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Sport Grey",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "Sport Grey",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "3XL",
+            "color": "Sport Grey",
+            "variant_id": null,
+            "url": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "tn-morel-ls",
+      "name": "Morel Long-Sleeve Tee",
+      "brand": "true-nature",
+      "collection": "true-nature",
+      "description": "Olive long-sleeve tee with a morel mushroom graphic reading \"Spore Season Is Always In Session.\"",
+      "price": 32,
+      "image": "images/true-nature-morel-ls-tee-olive-front.jpg",
+      "printify_product_id": null,
+      "printify_url": null,
+      "status": "draft",
+      "featured": false,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "colors": [
+        "Olive Green",
+        "Army Green",
+        "Black"
+      ],
+      "printify_url_verified": false,
+      "printify": {
+        "product_id": null,
+        "product_url": null,
+        "variants": [
+          {
+            "size": "S",
+            "color": "Olive Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Olive Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Olive Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Olive Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "Olive Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "S",
+            "color": "Army Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Army Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Army Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Army Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "Army Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "S",
+            "color": "Black",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Black",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Black",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Black",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "Black",
+            "variant_id": null,
+            "url": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "tn-spore-ls",
+      "name": "\"Spore Season\" LS Tee",
+      "brand": "true-nature",
+      "collection": "true-nature",
+      "description": "Olive long-sleeve tee with a large morel and foliage graphic plus True Nature sleeve branding.",
+      "price": 32,
+      "image": "images/true-nature-spore-season-ls-tee-olive-front.jpg",
+      "printify_product_id": null,
+      "printify_url": null,
+      "status": "draft",
+      "featured": false,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "colors": [
+        "Olive Green",
+        "Forest Green",
+        "Natural"
+      ],
+      "printify_url_verified": false,
+      "printify": {
+        "product_id": null,
+        "product_url": null,
+        "variants": [
+          {
+            "size": "S",
+            "color": "Olive Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Olive Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Olive Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Olive Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "Olive Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "S",
+            "color": "Forest Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Forest Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Forest Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Forest Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "Forest Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "S",
+            "color": "Natural",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Natural",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Natural",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Natural",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "Natural",
+            "variant_id": null,
+            "url": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "tn-bite-me",
+      "name": "\"Bite Me\" Crop Tee",
+      "brand": "true-nature",
+      "collection": "true-nature",
+      "description": "Cream crop tee with a mosquito and pine tree graphic reading \"Bite Me.\"",
+      "price": 28,
+      "image": "images/true-nature-bite-me-crop-tee-cream-front.jpg",
+      "printify_product_id": null,
+      "printify_url": null,
+      "status": "draft",
+      "featured": false,
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "Cream",
+        "White",
+        "Dusty Pink"
+      ],
+      "printify_url_verified": false,
+      "printify": {
+        "product_id": null,
+        "product_url": null,
+        "variants": [
+          {
+            "size": "XS",
+            "color": "Cream",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "S",
+            "color": "Cream",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Cream",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Cream",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Cream",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XS",
+            "color": "White",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "S",
+            "color": "White",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "White",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "White",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "White",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XS",
+            "color": "Dusty Pink",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "S",
+            "color": "Dusty Pink",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Dusty Pink",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Dusty Pink",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Dusty Pink",
+            "variant_id": null,
+            "url": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "tn-hoodie",
+      "name": "True Nature Hoodie",
+      "brand": "true-nature",
+      "collection": "true-nature",
+      "description": "True Nature hoodie with mushroom and forest-inspired branding.",
+      "price": 45,
+      "image": "images/true-nature-hoodie-olive-front.jpg",
+      "printify_product_id": null,
+      "printify_url": null,
+      "status": "draft",
+      "featured": false,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "3XL"
+      ],
+      "colors": [
+        "Olive Green",
+        "Forest Green",
+        "Sand",
+        "Black"
+      ],
+      "printify_url_verified": false,
+      "printify": {
+        "product_id": null,
+        "product_url": null,
+        "variants": [
+          {
+            "size": "S",
+            "color": "Olive Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Olive Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Olive Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Olive Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "Olive Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "3XL",
+            "color": "Olive Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "S",
+            "color": "Forest Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Forest Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Forest Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Forest Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "Forest Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "3XL",
+            "color": "Forest Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "S",
+            "color": "Sand",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Sand",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Sand",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Sand",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "Sand",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "3XL",
+            "color": "Sand",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "S",
+            "color": "Black",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Black",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Black",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Black",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "Black",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "3XL",
+            "color": "Black",
+            "variant_id": null,
+            "url": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "tn-swim",
+      "name": "Pine Morel Swim Shorts",
+      "brand": "true-nature",
+      "collection": "true-nature",
+      "description": "All-over-print swim shorts with a pine tree and morel pattern plus True Nature branding.",
+      "price": 35,
+      "image": "images/true-nature-pine-morel-swim-shorts-aop-front.jpg",
+      "printify_product_id": null,
+      "printify_url": null,
+      "status": "draft",
+      "featured": false,
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "3XL"
+      ],
+      "colors": [
+        "Pine Morel Pattern"
+      ],
+      "printify_url_verified": false,
+      "printify": {
+        "product_id": null,
+        "product_url": null,
+        "variants": [
+          {
+            "size": "XS",
+            "color": "Pine Morel Pattern",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "S",
+            "color": "Pine Morel Pattern",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Pine Morel Pattern",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Pine Morel Pattern",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Pine Morel Pattern",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "Pine Morel Pattern",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "3XL",
+            "color": "Pine Morel Pattern",
+            "variant_id": null,
+            "url": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "tn-cartoon-shorts",
+      "name": "\"Spore Season\" Shorts",
+      "brand": "true-nature",
+      "collection": "true-nature",
+      "description": "Cream shorts with a smiling mushroom graphic reading \"Collect Moments Not Things.\"",
+      "price": 30,
+      "image": "images/true-nature-spore-season-shorts-cream-front.jpg",
+      "printify_product_id": null,
+      "printify_url": null,
+      "status": "draft",
+      "featured": false,
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "colors": [
+        "Cream",
+        "Natural"
+      ],
+      "printify_url_verified": false,
+      "printify": {
+        "product_id": null,
+        "product_url": null,
+        "variants": [
+          {
+            "size": "XS",
+            "color": "Cream",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "S",
+            "color": "Cream",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Cream",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Cream",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Cream",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "Cream",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XS",
+            "color": "Natural",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "S",
+            "color": "Natural",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Natural",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Natural",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Natural",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "Natural",
+            "variant_id": null,
+            "url": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "tn-womens-shorts",
+      "name": "Womens Shorts",
+      "brand": "true-nature",
+      "collection": "true-nature",
+      "description": "Cream and olive shorts with a mushroom character graphic and True Nature branding.",
+      "price": 30,
+      "image": "images/true-nature-womens-shorts-cream-olive-front.jpg",
+      "printify_product_id": null,
+      "printify_url": null,
+      "status": "draft",
+      "featured": false,
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "Cream/Olive",
+        "Cream/Forest"
+      ],
+      "printify_url_verified": false,
+      "printify": {
+        "product_id": null,
+        "product_url": null,
+        "variants": [
+          {
+            "size": "XS",
+            "color": "Cream/Olive",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "S",
+            "color": "Cream/Olive",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Cream/Olive",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Cream/Olive",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Cream/Olive",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XS",
+            "color": "Cream/Forest",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "S",
+            "color": "Cream/Forest",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Cream/Forest",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Cream/Forest",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Cream/Forest",
+            "variant_id": null,
+            "url": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "tn-pajama",
+      "name": "Mushroom Pajama Pants",
+      "brand": "true-nature",
+      "collection": "true-nature",
+      "description": "All-over-print pajama pants with mushroom and foliage patterning.",
+      "price": 30,
+      "image": "images/true-nature-mushroom-pajama-pants-aop-front.jpg",
+      "printify_product_id": null,
+      "printify_url": null,
+      "status": "draft",
+      "featured": false,
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "colors": [
+        "Mushroom Pattern"
+      ],
+      "printify_url_verified": false,
+      "printify": {
+        "product_id": null,
+        "product_url": null,
+        "variants": [
+          {
+            "size": "XS",
+            "color": "Mushroom Pattern",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "S",
+            "color": "Mushroom Pattern",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Mushroom Pattern",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Mushroom Pattern",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Mushroom Pattern",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "Mushroom Pattern",
+            "variant_id": null,
+            "url": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "tn-bikini",
+      "name": "Mushroom Pattern Bikini",
+      "brand": "true-nature",
+      "collection": "true-nature",
+      "description": "String bikini with a cream mushroom pattern, olive ties, and True Nature branding.",
+      "price": 30,
+      "image": "images/true-nature-mushroom-bikini-aop-front.jpg",
+      "printify_product_id": null,
+      "printify_url": null,
+      "status": "draft",
+      "featured": false,
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "colors": [
+        "Mushroom Pattern"
+      ],
+      "printify_url_verified": false,
+      "printify": {
+        "product_id": null,
+        "product_url": null,
+        "variants": [
+          {
+            "size": "XS",
+            "color": "Mushroom Pattern",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "S",
+            "color": "Mushroom Pattern",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Mushroom Pattern",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Mushroom Pattern",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Mushroom Pattern",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "Mushroom Pattern",
+            "variant_id": null,
+            "url": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "tn-boxers",
+      "name": "Mushroom Boxer Briefs",
+      "brand": "true-nature",
+      "collection": "true-nature",
+      "description": "Boxer briefs with mushroom and foliage all-over print plus a True Nature waistband graphic.",
+      "price": 20,
+      "image": "images/true-nature-mushroom-boxer-briefs-aop-front.jpg",
+      "printify_product_id": null,
+      "printify_url": null,
+      "status": "draft",
+      "featured": false,
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "colors": [
+        "Mushroom Pattern"
+      ],
+      "printify_url_verified": false,
+      "printify": {
+        "product_id": null,
+        "product_url": null,
+        "variants": [
+          {
+            "size": "XS",
+            "color": "Mushroom Pattern",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "S",
+            "color": "Mushroom Pattern",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Mushroom Pattern",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Mushroom Pattern",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Mushroom Pattern",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "Mushroom Pattern",
+            "variant_id": null,
+            "url": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "tn-beanie",
+      "name": "True Nature Beanie",
+      "brand": "true-nature",
+      "collection": "true-nature",
+      "description": "Olive green beanie with True Nature front branding.",
+      "price": 25,
+      "image": "images/true-nature-beanie-olive-front.jpg",
+      "printify_product_id": null,
+      "printify_url": null,
+      "status": "draft",
+      "featured": false,
+      "sizes": [
+        "One Size"
+      ],
+      "colors": [
+        "Olive Green",
+        "Forest Green",
+        "Black"
+      ],
+      "printify_url_verified": false,
+      "printify": {
+        "product_id": null,
+        "product_url": null,
+        "variants": [
+          {
+            "size": "One Size",
+            "color": "Olive Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "One Size",
+            "color": "Forest Green",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "One Size",
+            "color": "Black",
+            "variant_id": null,
+            "url": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "otc-hoodie",
+      "name": "\"Climb With Respect\" Hoodie",
+      "brand": "overhang",
+      "collection": "overhang",
+      "description": "Dark olive hoodie with an arborist climbing silhouette and circular \"Built for Wood\" badge graphic.",
+      "price": 45,
+      "image": "images/overhang-tree-co-climb-with-respect-hoodie-dark-olive-front.jpg",
+      "printify_product_id": null,
+      "printify_url": null,
+      "status": "draft",
+      "featured": true,
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "3XL"
+      ],
+      "colors": [
+        "Dark Olive",
+        "Black",
+        "Charcoal"
+      ],
+      "printify_url_verified": false,
+      "printify": {
+        "product_id": null,
+        "product_url": null,
+        "variants": [
+          {
+            "size": "S",
+            "color": "Dark Olive",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Dark Olive",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Dark Olive",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Dark Olive",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "Dark Olive",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "3XL",
+            "color": "Dark Olive",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "S",
+            "color": "Black",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Black",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Black",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Black",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "Black",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "3XL",
+            "color": "Black",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "S",
+            "color": "Charcoal",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "M",
+            "color": "Charcoal",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "L",
+            "color": "Charcoal",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XL",
+            "color": "Charcoal",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "XXL",
+            "color": "Charcoal",
+            "variant_id": null,
+            "url": null
+          },
+          {
+            "size": "3XL",
+            "color": "Charcoal",
+            "variant_id": null,
+            "url": null
+          }
+        ]
+      }
+    }
+  ]
+}

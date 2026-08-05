@@ -1,0 +1,4729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vyro Gear Clothing Company — Premium Outdoor Apparel</title>
+    <meta name="description" content="Premium print-on-demand apparel for arborists, outdoor enthusiasts, and wild souls. Designed by Vyro Gear, made and shipped by Printify.">
+    
+    <!-- Google Fonts: Syne for display, Plus Jakarta Sans for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS RESET & AESTHETICS */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #16160f; /* dark forest bg */
+            --bg-alt: #1c1c14; /* secondary bg */
+            --card: #222219; /* card background */
+            --text: #e8e6e0; /* main warm light text */
+            --text-muted: #a5a39c; /* muted gray */
+            --sage: #7a8c5c; /* accent green */
+            --sage-hover: #8ba06a;
+            --tan: #c4a875; /* warm accent */
+            --tan-hover: #d2b988;
+            --border: #2e2e24;
+            --border-hover: #404032;
+            --overlay: rgba(10, 10, 7, 0.75);
+            --gold: #d4af37;
+            
+            --font-display: 'Syne', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+            --max-width: 1400px;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--bg);
+            color: var(--text);
+            scrollbar-width: thin;
+            scrollbar-color: var(--sage) var(--bg-alt);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-alt);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--sage);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--sage-hover);
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        button {
+            background: none;
+            border: none;
+            color: inherit;
+            font-family: inherit;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+        }
+
+        /* BUTTONS & BADGES */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            transition: var(--transition);
+            border-radius: 2px;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background-color: var(--sage);
+            color: #16160f;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--sage-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--text);
+            color: var(--text);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--text);
+            color: var(--bg);
+            transform: translateY(-2px);
+        }
+
+        .btn-tan {
+            background-color: var(--tan);
+            color: #16160f;
+        }
+
+        .btn-tan:hover {
+            background-color: var(--tan-hover);
+            transform: translateY(-2px);
+        }
+
+        .badge-pod {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--tan);
+            border: 1px solid var(--tan);
+            padding: 4px 12px;
+            margin-bottom: 20px;
+            border-radius: 2px;
+        }
+
+        /* STICKY HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            z-index: 100;
+            background-color: rgba(22, 22, 15, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(46, 46, 36, 0.3);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            height: 70px;
+            background-color: rgba(22, 22, 15, 0.95);
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-inner {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 18px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .logo span {
+            color: var(--sage);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            padding: 8px 0;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--sage);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-actions button,
+        .header-actions a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            color: var(--text-muted);
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .header-actions button:hover,
+        .header-actions a:hover {
+            color: var(--text);
+            background-color: var(--bg-alt);
+        }
+
+        /* Mobile hamburger */
+        .hamburger {
+            display: none;
+        }
+
+        @media (max-width: 1024px) {
+            .nav-links {
+                display: none;
+            }
+            .hamburger {
+                display: flex !important;
+            }
+        }
+
+        /* MOBILE MENU DRAWER */
+        .drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--overlay);
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .drawer-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .mobile-drawer {
+            position: fixed;
+            top: 0;
+            right: -320px;
+            width: 320px;
+            height: 100%;
+            background-color: var(--bg-alt);
+            z-index: 1001;
+            padding: 40px 30px;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .mobile-drawer.open {
+            right: 0;
+        }
+
+        .drawer-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .drawer-close {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: var(--bg);
+            border: 1px solid var(--border);
+        }
+
+        .drawer-close:hover {
+            background-color: var(--border);
+        }
+
+        .drawer-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .drawer-nav a {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+        }
+
+        .drawer-nav a:hover,
+        .drawer-nav a.active {
+            color: var(--text);
+            padding-left: 8px;
+        }
+
+        .drawer-footer {
+            margin-top: auto;
+            border-top: 1px solid var(--border);
+            padding-top: 24px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-image: linear-gradient(rgba(16, 16, 11, 0.6), rgba(16, 16, 11, 0.9)), url('images/lifestyle-hero-campaign.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding-top: 80px;
+            margin-bottom: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+            padding: 40px 20px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: 64px;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            color: var(--text);
+        }
+
+        .hero h1 span {
+            color: var(--sage);
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .hero-ctas {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 70vh;
+                background-attachment: scroll;
+            }
+            .hero h1 {
+                font-size: 40px;
+            }
+            .hero-ctas {
+                flex-direction: column;
+                width: 100%;
+            }
+            .hero-ctas .btn {
+                width: 100%;
+            }
+        }
+
+        /* THREE BRAND DOORS */
+        .brand-doors {
+            padding-bottom: 80px;
+        }
+
+        .doors-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .door-card {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px;
+            transition: var(--transition);
+        }
+
+        .door-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+            z-index: 1;
+        }
+
+        .door-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(16, 16, 11, 0.95) 0%, rgba(16, 16, 11, 0.4) 50%, rgba(16, 16, 11, 0.1) 100%);
+            z-index: 2;
+            transition: var(--transition);
+        }
+
+        .door-content {
+            position: relative;
+            z-index: 3;
+            transform: translateY(10px);
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .door-card:hover .door-bg {
+            transform: scale(1.08);
+        }
+
+        .door-card:hover .door-overlay {
+            background: linear-gradient(to top, rgba(22, 22, 15, 0.98) 0%, rgba(22, 22, 15, 0.5) 60%, rgba(22, 22, 15, 0.2) 100%);
+        }
+
+        .door-card:hover .door-content {
+            transform: translateY(0);
+        }
+
+        .door-card h2 {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .door-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        .door-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--tan);
+        }
+
+        .door-card:hover .door-link {
+            color: var(--tan-bright);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 1024px) {
+            .doors-grid {
+                grid-template-columns: 1fr;
+            }
+            .door-card {
+                height: 450px;
+                padding: 30px;
+            }
+        }
+
+        /* HORIZONTAL SCROLL SECTIONS (NEW DROPS & BEST SELLERS) */
+        .section-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 20px;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-display);
+            font-size: 36px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+        }
+
+        .section-header .view-all {
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--tan);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-header .view-all:hover {
+            color: var(--tan-hover);
+            text-decoration: underline;
+        }
+
+        .row-scroll-container {
+            position: relative;
+            margin: 0 -40px;
+            padding: 0 40px;
+        }
+
+        .row-scroll {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 10px 0 30px 0;
+            scrollbar-width: none; /* Hide scrollbar for clean look */
+        }
+
+        .row-scroll::-webkit-scrollbar {
+            display: none; /* Hide scrollbar Chrome/Safari */
+        }
+
+        .row-scroll .product-card {
+            flex: 0 0 300px;
+        }
+
+        /* Row navigations */
+        .scroll-btn {
+            position: absolute;
+            top: 40%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            background-color: var(--bg-alt);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .scroll-btn:hover {
+            background-color: var(--sage);
+            color: var(--bg);
+            border-color: var(--sage);
+        }
+
+        .scroll-left {
+            left: 10px;
+        }
+
+        .scroll-right {
+            right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .row-scroll-container {
+                margin: 0 -20px;
+                padding: 0 20px;
+            }
+            .row-scroll {
+                gap: 20px;
+            }
+            .row-scroll .product-card {
+                flex: 0 0 260px;
+            }
+            .scroll-btn {
+                display: none;
+            }
+        }
+
+        /* PRODUCT CARD DESIGN */
+        .product-card {
+            background-color: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-img-container {
+            position: relative;
+            aspect-ratio: 4 / 5;
+            overflow: hidden;
+            background-color: var(--bg-alt);
+            cursor: pointer;
+        }
+
+        .card-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .product-card:hover .card-img-container img {
+            transform: scale(1.05);
+        }
+
+        .collection-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            background-color: rgba(22, 22, 25, 0.85);
+            backdrop-filter: blur(4px);
+            padding: 4px 10px;
+            border-radius: 2px;
+            color: var(--text-muted);
+            border: 1px solid rgba(232, 230, 224, 0.15);
+        }
+
+        .card-info {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            gap: 12px;
+        }
+
+        .card-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card-price {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--tan);
+        }
+
+        .product-title {
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1.4;
+            color: var(--text);
+            cursor: pointer;
+            transition: color var(--transition);
+            /* Clamp to 2 lines */
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            height: 44px;
+        }
+
+        .product-title:hover {
+            color: var(--sage);
+        }
+
+        .card-buy-btn {
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            text-align: center;
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: auto;
+            transition: var(--transition);
+        }
+
+        .card-buy-btn.buy-verified {
+            background-color: var(--sage);
+            color: var(--bg);
+        }
+
+        .card-buy-btn.buy-verified:hover {
+            background-color: var(--sage-hover);
+        }
+
+        .card-buy-btn.coming-soon {
+            background-color: #2a2a22;
+            color: #55554a;
+            border: 1px solid var(--border);
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        /* COLLECTIONS INTEGRATED SEARCH & FILTERS BAR */
+        .shop-toolbar {
+            background-color: var(--bg-alt);
+            border: 1px solid var(--border);
+            padding: 20px 30px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .toolbar-filters {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .filter-pill {
+            padding: 8px 18px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            border-radius: 20px;
+            transition: var(--transition);
+        }
+
+        .filter-pill:hover {
+            color: var(--text);
+            border-color: var(--border-hover);
+        }
+
+        .filter-pill.active {
+            background-color: var(--sage);
+            color: var(--bg);
+            border-color: var(--sage);
+        }
+
+        .toolbar-search {
+            position: relative;
+            max-width: 320px;
+            width: 100%;
+        }
+
+        .toolbar-search input {
+            width: 100%;
+            background-color: var(--bg);
+            border: 1px solid var(--border);
+            padding: 10px 16px;
+            padding-right: 40px;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 13px;
+            border-radius: 20px;
+            transition: var(--transition);
+        }
+
+        .toolbar-search input:focus {
+            outline: none;
+            border-color: var(--sage);
+            box-shadow: 0 0 0 2px rgba(122, 140, 92, 0.2);
+        }
+
+        .toolbar-search-btn {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .clear-search-btn {
+            position: absolute;
+            right: 36px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .clear-search-btn:hover {
+            color: var(--text);
+        }
+
+        @media (max-width: 900px) {
+            .shop-toolbar {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 20px;
+            }
+            .toolbar-search {
+                max-width: 100%;
+            }
+        }
+
+        /* COLLECTION GRIDS */
+        .collection-section {
+            margin-bottom: 80px;
+        }
+
+        .collection-intro {
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        .collection-intro h3 {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .collection-intro .tagline {
+            font-family: var(--font-display);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--tan);
+            margin-bottom: 12px;
+        }
+
+        .collection-intro p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+                gap: 20px;
+            }
+        }
+
+        /* EMPTY STATE */
+        .shop-empty-state {
+            display: none;
+            text-align: center;
+            padding: 80px 40px;
+            border: 1px dashed var(--border);
+            border-radius: 4px;
+            background-color: var(--bg-alt);
+            max-width: 600px;
+            margin: 0 auto 80px auto;
+        }
+
+        .shop-empty-state.visible {
+            display: block;
+        }
+
+        .shop-empty-state h3 {
+            font-family: var(--font-display);
+            font-size: 22px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            letter-spacing: 0.05em;
+        }
+
+        .shop-empty-state p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        /* PROMOTIONAL SECTIONS */
+        .promo-section {
+            position: relative;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            margin-bottom: 80px;
+        }
+
+        .promo-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: 1;
+        }
+
+        .promo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(22, 22, 15, 0.95) 0%, rgba(22, 22, 15, 0.8) 50%, rgba(22, 22, 15, 0.2) 100%);
+            z-index: 2;
+        }
+
+        .promo-content {
+            position: relative;
+            z-index: 3;
+            max-width: 600px;
+            padding: 60px;
+        }
+
+        .promo-content h2 {
+            font-family: var(--font-display);
+            font-size: 38px;
+            font-weight: 800;
+            text-transform: uppercase;
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        .promo-content h2 span {
+            color: var(--tan);
+        }
+
+        .promo-content p {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        /* Alternating promo layouts */
+        .promo-alt {
+            justify-content: flex-end;
+        }
+
+        .promo-alt .promo-overlay {
+            background: linear-gradient(-90deg, rgba(22, 22, 15, 0.95) 0%, rgba(22, 22, 15, 0.8) 50%, rgba(22, 22, 15, 0.2) 100%);
+        }
+
+        @media (max-width: 768px) {
+            .promo-section {
+                min-height: auto;
+            }
+            .promo-overlay {
+                background: rgba(22, 22, 15, 0.9) !important;
+            }
+            .promo-content {
+                padding: 40px 20px;
+            }
+            .promo-content h2 {
+                font-size: 28px;
+            }
+        }
+
+        /* FIELD PROOF INTRO SECTION */
+        .field-proof-section {
+            background-color: var(--bg-alt);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 80px 60px;
+            margin-bottom: 80px;
+            text-align: center;
+        }
+
+        .field-proof-header {
+            max-width: 600px;
+            margin: 0 auto 50px auto;
+        }
+
+        .field-proof-header h2 {
+            font-family: var(--font-display);
+            font-size: 40px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            letter-spacing: 0.05em;
+        }
+
+        .field-proof-header p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .badges-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 24px;
+            margin-bottom: 50px;
+        }
+
+        .badge-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            transition: var(--transition);
+        }
+
+        .badge-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .badge-icon-wrap {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background-color: var(--card);
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--tan);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .badge-item:hover .badge-icon-wrap {
+            border-color: var(--tan);
+            color: var(--tan-bright);
+            box-shadow: 0 0 20px rgba(196, 168, 117, 0.15);
+        }
+
+        .badge-item span {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        .badge-item:hover span {
+            color: var(--text);
+        }
+
+        @media (max-width: 900px) {
+            .badges-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .field-proof-section {
+                padding: 50px 20px;
+            }
+            .badges-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* CUSTOMER FIELD CREW EMPTY STATE */
+        .field-crew-section {
+            margin-bottom: 80px;
+        }
+
+        .crew-empty-state {
+            border: 1px dashed var(--border);
+            border-radius: 4px;
+            background-color: var(--bg-alt);
+            padding: 80px 40px;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .crew-empty-icon {
+            color: var(--border-hover);
+        }
+
+        .crew-empty-state h3 {
+            font-family: var(--font-display);
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text);
+        }
+
+        .crew-empty-state p {
+            color: var(--text-muted);
+            font-size: 14px;
+            max-width: 440px;
+            line-height: 1.6;
+        }
+
+        /* EMAIL SIGNUP SECTION */
+        .newsletter-section {
+            background: linear-gradient(135deg, var(--bg-alt) 0%, var(--card) 100%);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 80px 40px;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .newsletter-content {
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        .newsletter-content h2 {
+            font-family: var(--font-display);
+            font-size: 36px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            letter-spacing: 0.02em;
+        }
+
+        .newsletter-content p {
+            color: var(--text-muted);
+            font-size: 15px;
+            margin-bottom: 36px;
+            line-height: 1.6;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-form input {
+            flex-grow: 1;
+            background-color: var(--bg);
+            border: 1px solid var(--border);
+            padding: 16px 24px;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 14px;
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: var(--sage);
+        }
+
+        .newsletter-note {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        @media (max-width: 600px) {
+            .newsletter-section {
+                padding: 60px 20px;
+            }
+            .newsletter-form {
+                flex-direction: column;
+            }
+            .newsletter-form .btn {
+                width: 100%;
+            }
+        }
+
+        /* EMAIL RECOMMENDATION BUTTONS (Omit base44 links, use visually only) */
+        .rec-buttons-container {
+            display: none; /* Keep hidden, visually only */
+        }
+
+        /* FOOTER DESIGN */
+        footer {
+            background-color: var(--bg-alt);
+            border-top: 1px solid var(--border);
+            padding: 80px 0 40px 0;
+            font-size: 14px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-display);
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text);
+        }
+
+        .footer-col p {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .footer-col .logo {
+            margin-bottom: 4px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--tan);
+            padding-left: 4px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: var(--text-muted);
+            font-size: 12px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* PRODUCT DETAIL MODAL */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--overlay);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-container {
+            background-color: var(--bg-alt);
+            border: 1px solid var(--border);
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            border-radius: 4px;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.95);
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-overlay.open .modal-container {
+            transform: scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--bg);
+            border: 1px solid var(--border);
+            color: var(--text);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            background-color: var(--border);
+            transform: rotate(90deg);
+        }
+
+        .modal-gallery {
+            background-color: var(--bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            border-right: 1px solid var(--border);
+        }
+
+        .modal-gallery img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            border-radius: 2px;
+        }
+
+        .modal-info {
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            justify-content: center;
+        }
+
+        .modal-brand {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--tan);
+        }
+
+        .modal-title {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 800;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        .modal-price {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--tan-bright);
+        }
+
+        .modal-divider {
+            height: 1px;
+            background-color: var(--border);
+        }
+
+        .modal-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Size Selection Pill Options */
+        .option-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text);
+        }
+
+        .option-pills {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .pill-opt {
+            padding: 8px 14px;
+            font-size: 11px;
+            font-weight: 700;
+            border: 1px solid var(--border);
+            background-color: var(--bg);
+            color: var(--text-muted);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        .pill-opt:hover {
+            color: var(--text);
+            border-color: var(--border-hover);
+        }
+
+        .pill-opt.selected {
+            border-color: var(--sage);
+            background-color: var(--sage);
+            color: var(--bg);
+        }
+
+        /* Color Selection Chips */
+        .color-chips {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .chip-opt {
+            padding: 8px 14px;
+            font-size: 11px;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .chip-opt:hover {
+            color: var(--text);
+            border-color: var(--border-hover);
+        }
+
+        .chip-opt.selected {
+            border-color: var(--tan);
+            background-color: var(--tan);
+            color: var(--bg);
+        }
+
+        .modal-buy-btn-wrap {
+            margin-top: 10px;
+        }
+
+        .modal-buy-btn {
+            width: 100%;
+            padding: 16px 24px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            text-align: center;
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .modal-buy-btn.buy-verified {
+            background-color: var(--sage);
+            color: var(--bg);
+        }
+
+        .modal-buy-btn.buy-verified:hover {
+            background-color: var(--sage-hover);
+            transform: translateY(-2px);
+        }
+
+        .modal-buy-btn.coming-soon {
+            background-color: #2a2a22;
+            color: #55554a;
+            border: 1px solid var(--border);
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        @media (max-width: 900px) {
+            .modal-container {
+                grid-template-columns: 1fr;
+                max-height: 95vh;
+            }
+            .modal-gallery {
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+                padding: 30px;
+            }
+            .modal-gallery img {
+                max-width: 320px;
+                margin: 0 auto;
+            }
+            .modal-info {
+                padding: 30px;
+            }
+        }
+
+        /* TOAST SYSTEM */
+        .toast-container {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background-color: var(--bg-alt);
+            border: 1px solid var(--border);
+            padding: 14px 28px;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 2000;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: none;
+        }
+
+        .toast-container.visible {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .toast-icon {
+            color: var(--sage);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .toast-text {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        /* SEARCH DRAWER OVERLAY */
+        .search-overlay {
+            position: fixed;
+            top: -120px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background-color: var(--bg);
+            border-bottom: 1px solid var(--border);
+            z-index: 101;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 40px;
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .search-overlay.open {
+            transform: translateY(120px);
+        }
+
+        .search-box-wrap {
+            max-width: 600px;
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box-wrap input {
+            width: 100%;
+            background-color: var(--bg-alt);
+            border: 1px solid var(--border);
+            padding: 14px 24px;
+            padding-right: 80px;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 15px;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .search-box-wrap input:focus {
+            outline: none;
+            border-color: var(--sage);
+        }
+
+        .search-overlay-close {
+            position: absolute;
+            right: 15px;
+            color: var(--text-muted);
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .search-overlay-close:hover {
+            color: var(--text);
+            background-color: var(--border);
+        }
+
+        .search-overlay-clear {
+            position: absolute;
+            right: 50px;
+            color: var(--text-muted);
+            display: none;
+        }
+
+        .search-overlay-clear:hover {
+            color: var(--text);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- STICKY HEADER -->
+    <header id="mainHeader">
+        <div class="container header-inner">
+            <a href="#" class="logo" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">
+                VYRO GEAR<span> CLOTHING CO.</span>
+            </a>
+            
+            <nav class="nav-links">
+                <a href="#shop-anchor">Shop</a>
+                <a href="#true-nature">True Nature</a>
+                <a href="#overhang">Overhang</a>
+                <a href="#new-drops">New Releases</a>
+                <a href="#about-footer">About</a>
+            </nav>
+
+            <div class="header-actions">
+                <button id="searchOpenBtn" title="Open Search" aria-label="Open Search">
+                    <!-- Search Icon SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+                
+                <a href="#" id="accountBtn" title="Account Portal" aria-label="Account Portal">
+                    <!-- Account Icon SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </a>
+
+                <a href="https://vyrogear.printify.com" target="_blank" title="Go to Printify Cart" aria-label="Printify Cart">
+                    <!-- Cart Icon SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                </a>
+
+                <button class="hamburger" id="hamburgerBtn" aria-label="Open Mobile Menu">
+                    <!-- Hamburger Icon SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- SEARCH OVERLAY DRAWER -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-box-wrap">
+            <input type="text" id="searchOverlayInput" placeholder="Search the collection...">
+            <button class="search-overlay-clear" id="searchOverlayClearBtn" title="Clear Search">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <button class="search-overlay-close" id="searchOverlayCloseBtn" title="Close Search">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- MOBILE NAVIGATION DRAWER -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <div class="mobile-drawer" id="mobileDrawer">
+        <div class="drawer-header">
+            <a href="#" class="logo" onclick="toggleMobileMenu(false); return false;">
+                VYRO GEAR<span> CLOTHING</span>
+            </a>
+            <button class="drawer-close" id="drawerCloseBtn" aria-label="Close Navigation Drawer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+        </div>
+        <nav class="drawer-nav">
+            <a href="#shop-anchor" class="drawer-link">Shop</a>
+            <a href="#vyro-gear" class="drawer-link">True Nature</a>
+            <a href="#overhang" class="drawer-link">Overhang</a>
+            <a href="#new-drops" class="drawer-link">New Releases</a>
+            <a href="#about-footer" class="drawer-link">About</a>
+        </nav>
+        <div class="drawer-footer">
+            <p>Made for the Wild. Built for the Work.</p>
+            <p style="margin-top: 10px;">Printed and shipped via Printify.</p>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-pod">PRINT-ON-DEMAND APPAREL</span>
+            </div>
+            <h1>BUILT FOR THE WILD.<br><span>MADE FOR THE WORK.</span></h1>
+            <p>Premium apparel for arborists, outdoor enthusiasts, and wild souls. Designed by Vyro Gear. Printed and shipped by Printify.</p>
+            <div class="hero-ctas">
+                <a href="#shop-anchor" class="btn btn-primary">Shop the Collection</a>
+                <a href="#overhang" class="btn btn-outline">Explore Overhang</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- THREE BRAND DOORS -->
+    <section class="brand-doors container">
+        <div class="doors-grid">
+            <!-- Vyro Gear Door -->
+            <a href="#vyro-gear" class="door-card">
+                <div class="door-bg" style="background-image: url('images/lifestyle-vyro-gear-campaign.jpg');"></div>
+                <div class="door-overlay"></div>
+                <div class="door-content">
+                    <h2>VYRO GEAR</h2>
+                    <p>Built for Work. Designed for Life.</p>
+                    <span class="door-link">Shop Vyro Gear →</span>
+                </div>
+            </a>
+
+            <!-- True Nature Door -->
+            <a href="#true-nature" class="door-card">
+                <div class="door-bg" style="background-image: url('images/lifestyle-true-nature-campaign.jpg');"></div>
+                <div class="door-overlay"></div>
+                <div class="door-content">
+                    <h2>TRUE NATURE</h2>
+                    <p>Rooted Differently. Stay Wild.</p>
+                    <span class="door-link">Shop True Nature →</span>
+                </div>
+            </a>
+
+            <!-- Overhang Door -->
+            <a href="#overhang" class="door-card">
+                <div class="door-bg" style="background-image: url('images/lifestyle-overhang-campaign.jpg');"></div>
+                <div class="door-overlay"></div>
+                <div class="door-content">
+                    <h2>OVERHANG TREE CO.</h2>
+                    <p>Climb With Respect. Built for Wood.</p>
+                    <span class="door-link">Shop Overhang →</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- NEW DROPS ROW -->
+    <section class="new-drops-section container" id="new-drops" style="margin-bottom: 80px;">
+        <div class="section-header">
+            <div>
+                <h2 style="font-family: var(--font-display);">New Drops</h2>
+            </div>
+            <a href="#shop-anchor" class="view-all" onclick="setShopFilter('all'); return true;">View All →</a>
+        </div>
+        <div class="row-scroll-container">
+            <button class="scroll-btn scroll-left" id="newDropsScrollLeft" aria-label="Scroll left">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <div class="row-scroll" id="newDropsRow">
+                <!-- Dynamically loaded -->
+            </div>
+            <button class="scroll-btn scroll-right" id="newDropsScrollRight" aria-label="Scroll right">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- BEST SELLERS ROW -->
+    <section class="best-sellers-section container" id="best-sellers" style="margin-bottom: 80px;">
+        <div class="section-header">
+            <div>
+                <h2 style="font-family: var(--font-display);">Best Sellers</h2>
+            </div>
+            <a href="#shop-anchor" class="view-all" onclick="setShopFilter('all'); return true;">View All →</a>
+        </div>
+        <div class="row-scroll-container">
+            <button class="scroll-btn scroll-left" id="bestSellersScrollLeft" aria-label="Scroll left">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <div class="row-scroll" id="bestSellersRow">
+                <!-- Dynamically loaded -->
+            </div>
+            <button class="scroll-btn scroll-right" id="bestSellersScrollRight" aria-label="Scroll right">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- ANCHOR TARGET FOR SHOP ACTIONS -->
+    <div id="shop-anchor" style="padding-top: 100px; margin-top: -100px;"></div>
+
+    <!-- MAIN DYNAMIC CATALOG SHOP -->
+    <main class="container">
+        <div class="shop-toolbar">
+            <div class="toolbar-filters">
+                <button class="filter-pill active" onclick="setShopFilter('all')" id="filter-all">All Gear</button>
+                <button class="filter-pill" onclick="setShopFilter('vyro-gear')" id="filter-vyro-gear">Vyro Gear</button>
+                <button class="filter-pill" onclick="setShopFilter('true-nature')" id="filter-true-nature">True Nature</button>
+                <button class="filter-pill" onclick="setShopFilter('overhang')" id="filter-overhang">Overhang Tree Co.</button>
+            </div>
+            <div class="toolbar-search">
+                <input type="text" id="shopSearchInput" placeholder="Search products...">
+                <button class="clear-search-btn" id="shopSearchClearBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+                <span class="toolbar-search-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </span>
+            </div>
+        </div>
+
+        <!-- COLLECTIONS CONTAINER -->
+        <div id="catalogContainer">
+            <!-- Vyro Gear Section -->
+            <section class="collection-section" id="vyro-gear">
+                <div class="collection-intro">
+                    <span class="tagline">Built for Work. Designed for Life.</span>
+                    <h3>VYRO GEAR</h3>
+                    <p>Rugged outdoor-inspired apparel with Vyro Gear graphics for workdays, trail days, and everyday wear.</p>
+                </div>
+                <div class="products-grid" id="grid-vyro-gear">
+                    <!-- Dynamically populated -->
+                </div>
+            </section>
+
+            <!-- True Nature Section -->
+            <section class="collection-section" id="true-nature">
+                <div class="collection-intro">
+                    <span class="tagline">Rooted Differently. Stay Wild.</span>
+                    <h3>TRUE NATURE</h3>
+                    <p>Nature- and mycology-inspired apparel for slow mornings, camp nights, and everyday comfort.</p>
+                </div>
+                <div class="products-grid" id="grid-true-nature">
+                    <!-- Dynamically populated -->
+                </div>
+            </section>
+
+            <!-- Overhang Section -->
+            <section class="collection-section" id="overhang">
+                <div class="collection-intro">
+                    <span class="tagline">Climb With Respect. Built for Wood.</span>
+                    <h3>OVERHANG TREE CO.</h3>
+                    <p>Arborist-inspired apparel for climbers, tree crews, and people who respect the work.</p>
+                </div>
+                <div class="products-grid" id="grid-overhang">
+                    <!-- Dynamically populated -->
+                </div>
+            </section>
+        </div>
+
+        <!-- SEARCH EMPTY STATE -->
+        <div class="shop-empty-state" id="emptyState">
+            <h3>No results found</h3>
+            <p>We couldn't find any products matching your current search terms or filter selection. Try checking your spelling or selecting a different collection.</p>
+            <button class="btn btn-primary btn-outline" onclick="resetCatalogFilters()">Reset All Filters</button>
+        </div>
+    </main>
+
+    <!-- PROMOTIONAL SECTIONS -->
+    <div class="container" style="margin-top: 80px;">
+        <!-- a. OVERHANG PROMO -->
+        <section class="promo-section" style="background-color: #222219;">
+            <div class="promo-bg" style="background-image: linear-gradient(90deg, rgba(22, 22, 15, 0.98) 0%, rgba(22, 22, 15, 0.7) 100%), url('images/lifestyle-overhang-campaign.jpg');"></div>
+            <div class="promo-overlay"></div>
+            <div class="promo-content">
+                <h2>For Those Who<br>Work <span>Outside</span></h2>
+                <p>Arborist-inspired graphics for climbers, tree crews, and people who respect the work. Overhang pieces are print-on-demand apparel built around rope, wood, and canopy culture.</p>
+                <a href="#overhang" class="btn btn-tan">Shop Overhang →</a>
+            </div>
+        </section>
+
+        <!-- b. TRUE NATURE PROMO -->
+        <section class="promo-section promo-alt">
+            <div class="promo-bg" style="background-image: linear-gradient(-90deg, rgba(22, 22, 15, 0.98) 0%, rgba(22, 22, 15, 0.7) 100%), url('images/lifestyle-true-nature-campaign.jpg');"></div>
+            <div class="promo-overlay"></div>
+            <div class="promo-content">
+                <h2>Built for Slow Nights<br>and <span>Early Starts</span></h2>
+                <p>Inspired by soil, mycology, and quiet wilderness moments. The True Nature collection uses soft print-on-demand apparel blanks with mushroom, forest, and camp-life graphics.</p>
+                <a href="#true-nature" class="btn btn-primary">Shop True Nature →</a>
+            </div>
+        </section>
+
+        <!-- c. FIELD PROOF INTRO SECTION WITH SVG BADGES -->
+        <section class="field-proof-section">
+            <div class="field-proof-header">
+                <h2>Field Proof</h2>
+                <p>Real customers. Real conditions. Real gear. Submit your field photos of Vyro Gear in action and earn exclusive community badges for your profiles.</p>
+            </div>
+            
+            <div class="badges-grid">
+                <!-- Badge 1: Camp Tested -->
+                <div class="badge-item">
+                    <div class="badge-icon-wrap">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2L2 22h20L12 2z"></path>
+                            <path d="M12 2v20"></path>
+                            <circle cx="12" cy="15" r="2"></circle>
+                        </svg>
+                    </div>
+                    <span>Camp Tested</span>
+                </div>
+
+                <!-- Badge 2: Morel Found -->
+                <div class="badge-item">
+                    <div class="badge-icon-wrap">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2a5 5 0 0 0-5 5c0 3 5 7 5 7s5-4 5-7a5 5 0 0 0-5-5z"></path>
+                            <path d="M9 14h6"></path>
+                            <path d="M12 14v6"></path>
+                            <path d="M10 20h4"></path>
+                        </svg>
+                    </div>
+                    <span>Morel Found</span>
+                </div>
+
+                <!-- Badge 3: Rope Ready -->
+                <div class="badge-item">
+                    <div class="badge-icon-wrap">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 3h12"></path>
+                            <path d="M8 3v12a4 4 0 0 0 8 0V3"></path>
+                            <path d="M12 3v12"></path>
+                            <circle cx="12" cy="18" r="3"></circle>
+                        </svg>
+                    </div>
+                    <span>Rope Ready</span>
+                </div>
+
+                <!-- Badge 4: Sawdust Certified -->
+                <div class="badge-item">
+                    <div class="badge-icon-wrap">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" y1="2" x2="2" y2="22"></line>
+                            <path d="M11 2H2v9"></path>
+                            <path d="M22 13v9h-9"></path>
+                        </svg>
+                    </div>
+                    <span>Sawdust Certified</span>
+                </div>
+
+                <!-- Badge 5: Wild at Heart -->
+                <div class="badge-item">
+                    <div class="badge-icon-wrap">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20.84 4.61a5.5 5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5 0 0 0 0-7.78z"></path>
+                        </svg>
+                    </div>
+                    <span>Wild at Heart</span>
+                </div>
+
+                <!-- Badge 6: Overhang Crew -->
+                <div class="badge-item">
+                    <div class="badge-icon-wrap">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <span>Overhang Crew</span>
+                </div>
+            </div>
+
+            <button class="btn btn-tan" onclick="showToast('Field Photo submissions will open soon!')">Submit Your Field Photo</button>
+        </section>
+
+        <!-- d. CUSTOMER FIELD CREW SECTION (EMPTY STATE) -->
+        <section class="field-crew-section">
+            <div class="crew-empty-state">
+                <div class="crew-empty-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                        <circle cx="12" cy="13" r="4"></circle>
+                    </svg>
+                </div>
+                <h3>The Field Crew</h3>
+                <p>No field photos yet. Be the first to share your journey! Tag us on social or submit your photos to get featured right here in the crew feed.</p>
+            </div>
+        </section>
+
+        <!-- e. EMAIL SIGNUP SECTION -->
+        <section class="newsletter-section">
+            <div class="newsletter-content">
+                <h2>Join the Vyro Gear Crew</h2>
+                <p>Subscribe to stay updated on new gear drops, seasonal collection releases, exclusive discounts, and wild forest stories.</p>
+                <form class="newsletter-form" onsubmit="handleSubscribe(event)">
+                    <input type="email" id="subscriberEmail" placeholder="Enter your email address" required aria-label="Subscriber Email">
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+                <span class="newsletter-note">No spam. Just drops, deals, and field stories.</span>
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="about-footer">
+        <div class="container footer-inner">
+            <div class="footer-grid">
+                <div class="footer-col" style="gap: 15px;">
+                    <a href="#" class="logo" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;" style="font-size: 16px;">
+                        VYRO GEAR<span> CLOTHING CO.</span>
+                    </a>
+                    <p style="font-size: 13px;">Premium print-on-demand apparel for arborists, outdoor enthusiasts, and wild souls. Designed with love, built for the forest floor.</p>
+                    <p style="font-size: 12px; color: var(--tan);">All apparel is print-on-demand, made and shipped by Printify.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Shop</h4>
+                    <div class="footer-links">
+                        <a href="#shop-anchor" onclick="setShopFilter('all')">All Products</a>
+                        <a href="#shop-anchor" onclick="setShopFilter('vyro-gear')">Vyro Gear</a>
+                        <a href="#shop-anchor" onclick="setShopFilter('true-nature')">True Nature</a>
+                        <a href="#shop-anchor" onclick="setShopFilter('overhang')">Overhang Tree Co.</a>
+                        <a href="#new-drops">New Releases</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <div class="footer-links">
+                        <a href="https://vyrogear.printify.com" target="_blank">Printify Store</a>
+                        <a href="#" onclick="showToast('Shipping information portal coming soon!')">Shipping Info</a>
+                        <a href="#" onclick="showToast('Returns and exchanges portal coming soon!')">Returns & Refunds</a>
+                        <a href="mailto:info@vyrogear.com">Contact Us</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <div class="footer-links">
+                        <a href="#" onclick="showToast('Our brand story page is coming soon!')">About Our Craft</a>
+                        <a href="#" onclick="showToast('Field proof community guidelines coming soon!')">Field Proof</a>
+                        <a href="#" onclick="showToast('Sustainability and eco-craft statements coming soon!')">Sustainability</a>
+                        <a href="#" onclick="showToast('Careers portal is coming soon!')">Careers</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Vyro Gear Clothing Company. All rights reserved.</p>
+                <div style="display: flex; gap: 20px;">
+                    <a href="#" onclick="showToast('Privacy Policy coming soon!')">Privacy Policy</a>
+                    <a href="#" onclick="showToast('Terms of Service coming soon!')">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- PRODUCT DETAIL MODAL -->
+    <div class="modal-overlay" id="productModal">
+        <div class="modal-container" id="modalContainer">
+            <button class="modal-close" id="modalCloseBtn" aria-label="Close Modal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div class="modal-gallery">
+                <img id="modalImage" src="" alt="">
+            </div>
+            <div class="modal-info">
+                <div>
+                    <span class="modal-brand" id="modalBrand">VYRO GEAR</span>
+                    <h2 class="modal-title" id="modalTitle"></h2>
+                </div>
+                <div class="modal-price" id="modalPrice"></div>
+                <div class="modal-divider"></div>
+                <p class="modal-desc" id="modalDescription"></p>
+                
+                <!-- Selectable Size Pills (visual only, styled to feel real) -->
+                <div class="option-group" id="sizeGroupContainer">
+                    <span class="option-label">Select Size</span>
+                    <div class="option-pills" id="modalSizes">
+                        <!-- Dynamically populated -->
+                    </div>
+                </div>
+
+                <!-- Selectable Color Chips (visual only) -->
+                <div class="option-group" id="colorGroupContainer">
+                    <span class="option-label">Select Color</span>
+                    <div class="color-chips" id="modalColors">
+                        <!-- Dynamically populated -->
+                    </div>
+                </div>
+
+                <div class="modal-buy-btn-wrap">
+                    <a href="#" id="modalBuyBtn" class="modal-buy-btn"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div class="toast-container" id="toast">
+        <div class="toast-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+        <div class="toast-text" id="toastMessage">Done!</div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        /* EMBEDDED FALLBACK PRODUCT DATA */
+        const fallbackProducts = [
+    {
+        "id": "vg-tee",
+        "name": "\"Built for Work\" Tee",
+        "brand": "vyro-gear",
+        "collection": "vyro-gear",
+        "description": "Short-sleeve tee with the VYRO GEAR arch logo and carabiner V graphic on a cream/natural base.",
+        "price": 28,
+        "image": "images/vyro-gear-built-for-work-tee-cream-front.jpg",
+        "printify_product_id": null,
+        "printify_url": null,
+        "status": "draft",
+        "featured": true,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL",
+            "3XL"
+        ],
+        "colors": [
+            "Cream",
+            "Natural",
+            "White"
+        ],
+        "printify_url_verified": false,
+        "printify": {
+            "product_id": null,
+            "product_url": null,
+            "variants": [
+                {
+                    "size": "S",
+                    "color": "Cream",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Cream",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Cream",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Cream",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "Cream",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "3XL",
+                    "color": "Cream",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "S",
+                    "color": "Natural",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Natural",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Natural",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Natural",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "Natural",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "3XL",
+                    "color": "Natural",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "S",
+                    "color": "White",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "White",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "White",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "White",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "White",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "3XL",
+                    "color": "White",
+                    "variant_id": null,
+                    "url": null
+                }
+            ]
+        }
+    },
+    {
+        "id": "vg-trucker",
+        "name": "VYRO GEAR Trucker Hat",
+        "brand": "vyro-gear",
+        "collection": "vyro-gear",
+        "description": "Olive and black trucker hat with a VYRO GEAR carabiner V front graphic.",
+        "price": 25,
+        "image": "images/vyro-gear-trucker-hat-olive-front.jpg",
+        "printify_product_id": null,
+        "printify_url": null,
+        "status": "draft",
+        "featured": false,
+        "sizes": [
+            "One Size"
+        ],
+        "colors": [
+            "Olive/Black"
+        ],
+        "printify_url_verified": false,
+        "printify": {
+            "product_id": null,
+            "product_url": null,
+            "variants": [
+                {
+                    "size": "One Size",
+                    "color": "Olive/Black",
+                    "variant_id": null,
+                    "url": null
+                }
+            ]
+        }
+    },
+    {
+        "id": "vg-snapback",
+        "name": "VYRO GEAR Snapback",
+        "brand": "vyro-gear",
+        "collection": "vyro-gear",
+        "description": "Structured snapback with a clean VYRO GEAR V logo and adjustable fit.",
+        "price": 25,
+        "image": "images/vyro-gear-snapback-hat-black-front.jpg",
+        "printify_product_id": null,
+        "printify_url": null,
+        "status": "draft",
+        "featured": false,
+        "sizes": [
+            "One Size"
+        ],
+        "colors": [
+            "Black",
+            "Charcoal"
+        ],
+        "printify_url_verified": false,
+        "printify": {
+            "product_id": null,
+            "product_url": null,
+            "variants": [
+                {
+                    "size": "One Size",
+                    "color": "Black",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "One Size",
+                    "color": "Charcoal",
+                    "variant_id": null,
+                    "url": null
+                }
+            ]
+        }
+    },
+    {
+        "id": "vg-field-hoodie",
+        "name": "\"Field Tested\" Hoodie",
+        "brand": "vyro-gear",
+        "collection": "vyro-gear",
+        "description": "Forest green hoodie with a shield-style pine, shovel, and compass graphic reading \"Trust the Land.\"",
+        "price": 45,
+        "image": "images/vyro-gear-field-tested-hoodie-forest-green-front.jpg",
+        "printify_product_id": null,
+        "printify_url": null,
+        "status": "draft",
+        "featured": true,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL",
+            "3XL"
+        ],
+        "colors": [
+            "Forest Green",
+            "Black",
+            "Charcoal"
+        ],
+        "printify_url_verified": false,
+        "printify": {
+            "product_id": null,
+            "product_url": null,
+            "variants": [
+                {
+                    "size": "S",
+                    "color": "Forest Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Forest Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Forest Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Forest Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "Forest Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "3XL",
+                    "color": "Forest Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "S",
+                    "color": "Black",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Black",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Black",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Black",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "Black",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "3XL",
+                    "color": "Black",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "S",
+                    "color": "Charcoal",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Charcoal",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Charcoal",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Charcoal",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "Charcoal",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "3XL",
+                    "color": "Charcoal",
+                    "variant_id": null,
+                    "url": null
+                }
+            ]
+        }
+    },
+    {
+        "id": "vg-skull-hoodie",
+        "name": "\"Stay Rooted\" Skull Hoodie",
+        "brand": "vyro-gear",
+        "collection": "vyro-gear",
+        "description": "Terracotta hoodie with a skull, arborist helmet, rope, and morel mushroom graphic reading \"Made for the Wild.\"",
+        "price": 45,
+        "image": "images/vyro-gear-stay-rooted-skull-hoodie-terracotta-front.jpg",
+        "printify_product_id": null,
+        "printify_url": null,
+        "status": "draft",
+        "featured": false,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL",
+            "3XL"
+        ],
+        "colors": [
+            "Terracotta",
+            "Sand",
+            "Charcoal"
+        ],
+        "printify_url_verified": false,
+        "printify": {
+            "product_id": null,
+            "product_url": null,
+            "variants": [
+                {
+                    "size": "S",
+                    "color": "Terracotta",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Terracotta",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Terracotta",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Terracotta",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "Terracotta",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "3XL",
+                    "color": "Terracotta",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "S",
+                    "color": "Sand",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Sand",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Sand",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Sand",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "Sand",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "3XL",
+                    "color": "Sand",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "S",
+                    "color": "Charcoal",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Charcoal",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Charcoal",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Charcoal",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "Charcoal",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "3XL",
+                    "color": "Charcoal",
+                    "variant_id": null,
+                    "url": null
+                }
+            ]
+        }
+    },
+    {
+        "id": "tn-morel-tee",
+        "name": "\"Stay Wild\" Morel Tee",
+        "brand": "true-nature",
+        "collection": "true-nature",
+        "description": "Cream tee with a morel mushroom, mountain, and sun circle graphic reading \"Float Free.\"",
+        "price": 28,
+        "image": "images/true-nature-stay-wild-morel-tee-cream-front.jpg",
+        "printify_product_id": null,
+        "printify_url": null,
+        "status": "draft",
+        "featured": true,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL",
+            "3XL"
+        ],
+        "colors": [
+            "Cream",
+            "Natural",
+            "White"
+        ],
+        "printify_url_verified": false,
+        "printify": {
+            "product_id": null,
+            "product_url": null,
+            "variants": [
+                {
+                    "size": "S",
+                    "color": "Cream",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Cream",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Cream",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Cream",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "Cream",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "3XL",
+                    "color": "Cream",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "S",
+                    "color": "Natural",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Natural",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Natural",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Natural",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "Natural",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "3XL",
+                    "color": "Natural",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "S",
+                    "color": "White",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "White",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "White",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "White",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "White",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "3XL",
+                    "color": "White",
+                    "variant_id": null,
+                    "url": null
+                }
+            ]
+        }
+    },
+    {
+        "id": "tn-skull-sweat",
+        "name": "\"Rooted Differently\" Sweatshirt",
+        "brand": "true-nature",
+        "collection": "true-nature",
+        "description": "Black crewneck sweatshirt with a skull, mushroom, and foliage graphic.",
+        "price": 40,
+        "image": "images/true-nature-rooted-differently-skull-sweatshirt-black-front.jpg",
+        "printify_product_id": null,
+        "printify_url": null,
+        "status": "draft",
+        "featured": true,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL",
+            "3XL"
+        ],
+        "colors": [
+            "Black",
+            "Charcoal",
+            "Sport Grey"
+        ],
+        "printify_url_verified": false,
+        "printify": {
+            "product_id": null,
+            "product_url": null,
+            "variants": [
+                {
+                    "size": "S",
+                    "color": "Black",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Black",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Black",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Black",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "Black",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "3XL",
+                    "color": "Black",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "S",
+                    "color": "Charcoal",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Charcoal",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Charcoal",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Charcoal",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "Charcoal",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "3XL",
+                    "color": "Charcoal",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "S",
+                    "color": "Sport Grey",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Sport Grey",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Sport Grey",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Sport Grey",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "Sport Grey",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "3XL",
+                    "color": "Sport Grey",
+                    "variant_id": null,
+                    "url": null
+                }
+            ]
+        }
+    },
+    {
+        "id": "tn-morel-ls",
+        "name": "Morel Long-Sleeve Tee",
+        "brand": "true-nature",
+        "collection": "true-nature",
+        "description": "Olive long-sleeve tee with a morel mushroom graphic reading \"Spore Season Is Always In Session.\"",
+        "price": 32,
+        "image": "images/true-nature-morel-ls-tee-olive-front.jpg",
+        "printify_product_id": null,
+        "printify_url": null,
+        "status": "draft",
+        "featured": false,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL"
+        ],
+        "colors": [
+            "Olive Green",
+            "Army Green",
+            "Black"
+        ],
+        "printify_url_verified": false,
+        "printify": {
+            "product_id": null,
+            "product_url": null,
+            "variants": [
+                {
+                    "size": "S",
+                    "color": "Olive Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Olive Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Olive Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Olive Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "Olive Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "S",
+                    "color": "Army Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Army Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Army Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Army Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "Army Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "S",
+                    "color": "Black",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Black",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Black",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Black",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "Black",
+                    "variant_id": null,
+                    "url": null
+                }
+            ]
+        }
+    },
+    {
+        "id": "tn-spore-ls",
+        "name": "\"Spore Season\" LS Tee",
+        "brand": "true-nature",
+        "collection": "true-nature",
+        "description": "Olive long-sleeve tee with a large morel and foliage graphic plus True Nature sleeve branding.",
+        "price": 32,
+        "image": "images/true-nature-spore-season-ls-tee-olive-front.jpg",
+        "printify_product_id": null,
+        "printify_url": null,
+        "status": "draft",
+        "featured": false,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL"
+        ],
+        "colors": [
+            "Olive Green",
+            "Forest Green",
+            "Natural"
+        ],
+        "printify_url_verified": false,
+        "printify": {
+            "product_id": null,
+            "product_url": null,
+            "variants": [
+                {
+                    "size": "S",
+                    "color": "Olive Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Olive Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Olive Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Olive Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "Olive Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "S",
+                    "color": "Forest Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Forest Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Forest Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Forest Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "Forest Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "S",
+                    "color": "Natural",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Natural",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Natural",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Natural",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "Natural",
+                    "variant_id": null,
+                    "url": null
+                }
+            ]
+        }
+    },
+    {
+        "id": "tn-bite-me",
+        "name": "\"Bite Me\" Crop Tee",
+        "brand": "true-nature",
+        "collection": "true-nature",
+        "description": "Cream crop tee with a mosquito and pine tree graphic reading \"Bite Me.\"",
+        "price": 28,
+        "image": "images/true-nature-bite-me-crop-tee-cream-front.jpg",
+        "printify_product_id": null,
+        "printify_url": null,
+        "status": "draft",
+        "featured": false,
+        "sizes": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "colors": [
+            "Cream",
+            "White",
+            "Dusty Pink"
+        ],
+        "printify_url_verified": false,
+        "printify": {
+            "product_id": null,
+            "product_url": null,
+            "variants": [
+                {
+                    "size": "XS",
+                    "color": "Cream",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "S",
+                    "color": "Cream",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Cream",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Cream",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Cream",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XS",
+                    "color": "White",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "S",
+                    "color": "White",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "White",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "White",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "White",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XS",
+                    "color": "Dusty Pink",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "S",
+                    "color": "Dusty Pink",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Dusty Pink",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Dusty Pink",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Dusty Pink",
+                    "variant_id": null,
+                    "url": null
+                }
+            ]
+        }
+    },
+    {
+        "id": "tn-hoodie",
+        "name": "True Nature Hoodie",
+        "brand": "true-nature",
+        "collection": "true-nature",
+        "description": "True Nature hoodie with mushroom and forest-inspired branding.",
+        "price": 45,
+        "image": "images/true-nature-hoodie-olive-front.jpg",
+        "printify_product_id": null,
+        "printify_url": null,
+        "status": "draft",
+        "featured": false,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL",
+            "3XL"
+        ],
+        "colors": [
+            "Olive Green",
+            "Forest Green",
+            "Sand",
+            "Black"
+        ],
+        "printify_url_verified": false,
+        "printify": {
+            "product_id": null,
+            "product_url": null,
+            "variants": [
+                {
+                    "size": "S",
+                    "color": "Olive Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Olive Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Olive Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Olive Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "Olive Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "3XL",
+                    "color": "Olive Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "S",
+                    "color": "Forest Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Forest Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Forest Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Forest Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "Forest Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "3XL",
+                    "color": "Forest Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "S",
+                    "color": "Sand",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Sand",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Sand",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Sand",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "Sand",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "3XL",
+                    "color": "Sand",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "S",
+                    "color": "Black",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Black",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Black",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Black",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "Black",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "3XL",
+                    "color": "Black",
+                    "variant_id": null,
+                    "url": null
+                }
+            ]
+        }
+    },
+    {
+        "id": "tn-swim",
+        "name": "Pine Morel Swim Shorts",
+        "brand": "true-nature",
+        "collection": "true-nature",
+        "description": "All-over-print swim shorts with a pine tree and morel pattern plus True Nature branding.",
+        "price": 35,
+        "image": "images/true-nature-pine-morel-swim-shorts-aop-front.jpg",
+        "printify_product_id": null,
+        "printify_url": null,
+        "status": "draft",
+        "featured": false,
+        "sizes": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL",
+            "3XL"
+        ],
+        "colors": [
+            "Pine Morel Pattern"
+        ],
+        "printify_url_verified": false,
+        "printify": {
+            "product_id": null,
+            "product_url": null,
+            "variants": [
+                {
+                    "size": "XS",
+                    "color": "Pine Morel Pattern",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "S",
+                    "color": "Pine Morel Pattern",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Pine Morel Pattern",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Pine Morel Pattern",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Pine Morel Pattern",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "Pine Morel Pattern",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "3XL",
+                    "color": "Pine Morel Pattern",
+                    "variant_id": null,
+                    "url": null
+                }
+            ]
+        }
+    },
+    {
+        "id": "tn-cartoon-shorts",
+        "name": "\"Spore Season\" Shorts",
+        "brand": "true-nature",
+        "collection": "true-nature",
+        "description": "Cream shorts with a smiling mushroom graphic reading \"Collect Moments Not Things.\"",
+        "price": 30,
+        "image": "images/true-nature-spore-season-shorts-cream-front.jpg",
+        "printify_product_id": null,
+        "printify_url": null,
+        "status": "draft",
+        "featured": false,
+        "sizes": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL"
+        ],
+        "colors": [
+            "Cream",
+            "Natural"
+        ],
+        "printify_url_verified": false,
+        "printify": {
+            "product_id": null,
+            "product_url": null,
+            "variants": [
+                {
+                    "size": "XS",
+                    "color": "Cream",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "S",
+                    "color": "Cream",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Cream",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Cream",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Cream",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "Cream",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XS",
+                    "color": "Natural",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "S",
+                    "color": "Natural",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Natural",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Natural",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Natural",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "Natural",
+                    "variant_id": null,
+                    "url": null
+                }
+            ]
+        }
+    },
+    {
+        "id": "tn-womens-shorts",
+        "name": "Womens Shorts",
+        "brand": "true-nature",
+        "collection": "true-nature",
+        "description": "Cream and olive shorts with a mushroom character graphic and True Nature branding.",
+        "price": 30,
+        "image": "images/true-nature-womens-shorts-cream-olive-front.jpg",
+        "printify_product_id": null,
+        "printify_url": null,
+        "status": "draft",
+        "featured": false,
+        "sizes": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "colors": [
+            "Cream/Olive",
+            "Cream/Forest"
+        ],
+        "printify_url_verified": false,
+        "printify": {
+            "product_id": null,
+            "product_url": null,
+            "variants": [
+                {
+                    "size": "XS",
+                    "color": "Cream/Olive",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "S",
+                    "color": "Cream/Olive",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Cream/Olive",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Cream/Olive",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Cream/Olive",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XS",
+                    "color": "Cream/Forest",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "S",
+                    "color": "Cream/Forest",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Cream/Forest",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Cream/Forest",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Cream/Forest",
+                    "variant_id": null,
+                    "url": null
+                }
+            ]
+        }
+    },
+    {
+        "id": "tn-pajama",
+        "name": "Mushroom Pajama Pants",
+        "brand": "true-nature",
+        "collection": "true-nature",
+        "description": "All-over-print pajama pants with mushroom and foliage patterning.",
+        "price": 30,
+        "image": "images/true-nature-mushroom-pajama-pants-aop-front.jpg",
+        "printify_product_id": null,
+        "printify_url": null,
+        "status": "draft",
+        "featured": false,
+        "sizes": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL"
+        ],
+        "colors": [
+            "Mushroom Pattern"
+        ],
+        "printify_url_verified": false,
+        "printify": {
+            "product_id": null,
+            "product_url": null,
+            "variants": [
+                {
+                    "size": "XS",
+                    "color": "Mushroom Pattern",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "S",
+                    "color": "Mushroom Pattern",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Mushroom Pattern",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Mushroom Pattern",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Mushroom Pattern",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "Mushroom Pattern",
+                    "variant_id": null,
+                    "url": null
+                }
+            ]
+        }
+    },
+    {
+        "id": "tn-bikini",
+        "name": "Mushroom Pattern Bikini",
+        "brand": "true-nature",
+        "collection": "true-nature",
+        "description": "String bikini with a cream mushroom pattern, olive ties, and True Nature branding.",
+        "price": 30,
+        "image": "images/true-nature-mushroom-bikini-aop-front.jpg",
+        "printify_product_id": null,
+        "printify_url": null,
+        "status": "draft",
+        "featured": false,
+        "sizes": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL"
+        ],
+        "colors": [
+            "Mushroom Pattern"
+        ],
+        "printify_url_verified": false,
+        "printify": {
+            "product_id": null,
+            "product_url": null,
+            "variants": [
+                {
+                    "size": "XS",
+                    "color": "Mushroom Pattern",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "S",
+                    "color": "Mushroom Pattern",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Mushroom Pattern",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Mushroom Pattern",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Mushroom Pattern",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "Mushroom Pattern",
+                    "variant_id": null,
+                    "url": null
+                }
+            ]
+        }
+    },
+    {
+        "id": "tn-boxers",
+        "name": "Mushroom Boxer Briefs",
+        "brand": "true-nature",
+        "collection": "true-nature",
+        "description": "Boxer briefs with mushroom and foliage all-over print plus a True Nature waistband graphic.",
+        "price": 20,
+        "image": "images/true-nature-mushroom-boxer-briefs-aop-front.jpg",
+        "printify_product_id": null,
+        "printify_url": null,
+        "status": "draft",
+        "featured": false,
+        "sizes": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL"
+        ],
+        "colors": [
+            "Mushroom Pattern"
+        ],
+        "printify_url_verified": false,
+        "printify": {
+            "product_id": null,
+            "product_url": null,
+            "variants": [
+                {
+                    "size": "XS",
+                    "color": "Mushroom Pattern",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "S",
+                    "color": "Mushroom Pattern",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Mushroom Pattern",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Mushroom Pattern",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Mushroom Pattern",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "Mushroom Pattern",
+                    "variant_id": null,
+                    "url": null
+                }
+            ]
+        }
+    },
+    {
+        "id": "tn-beanie",
+        "name": "True Nature Beanie",
+        "brand": "true-nature",
+        "collection": "true-nature",
+        "description": "Olive green beanie with True Nature front branding.",
+        "price": 25,
+        "image": "images/true-nature-beanie-olive-front.jpg",
+        "printify_product_id": null,
+        "printify_url": null,
+        "status": "draft",
+        "featured": false,
+        "sizes": [
+            "One Size"
+        ],
+        "colors": [
+            "Olive Green",
+            "Forest Green",
+            "Black"
+        ],
+        "printify_url_verified": false,
+        "printify": {
+            "product_id": null,
+            "product_url": null,
+            "variants": [
+                {
+                    "size": "One Size",
+                    "color": "Olive Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "One Size",
+                    "color": "Forest Green",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "One Size",
+                    "color": "Black",
+                    "variant_id": null,
+                    "url": null
+                }
+            ]
+        }
+    },
+    {
+        "id": "otc-hoodie",
+        "name": "\"Climb With Respect\" Hoodie",
+        "brand": "overhang",
+        "collection": "overhang",
+        "description": "Dark olive hoodie with an arborist climbing silhouette and circular \"Built for Wood\" badge graphic.",
+        "price": 45,
+        "image": "images/overhang-tree-co-climb-with-respect-hoodie-dark-olive-front.jpg",
+        "printify_product_id": null,
+        "printify_url": null,
+        "status": "draft",
+        "featured": true,
+        "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL",
+            "3XL"
+        ],
+        "colors": [
+            "Dark Olive",
+            "Black",
+            "Charcoal"
+        ],
+        "printify_url_verified": false,
+        "printify": {
+            "product_id": null,
+            "product_url": null,
+            "variants": [
+                {
+                    "size": "S",
+                    "color": "Dark Olive",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Dark Olive",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Dark Olive",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Dark Olive",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "Dark Olive",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "3XL",
+                    "color": "Dark Olive",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "S",
+                    "color": "Black",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Black",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Black",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Black",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "Black",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "3XL",
+                    "color": "Black",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "S",
+                    "color": "Charcoal",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "M",
+                    "color": "Charcoal",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "L",
+                    "color": "Charcoal",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XL",
+                    "color": "Charcoal",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "XXL",
+                    "color": "Charcoal",
+                    "variant_id": null,
+                    "url": null
+                },
+                {
+                    "size": "3XL",
+                    "color": "Charcoal",
+                    "variant_id": null,
+                    "url": null
+                }
+            ]
+        }
+    }
+];
+        const fallbackSettings = {
+    "name": "Vyro Gear Clothing Company",
+    "tagline": "Built for Work. Designed for Life.",
+    "hero_title": "Built for Work. Designed for Life.",
+    "hero_subtitle": "Premium print-on-demand apparel for arborists, outdoor enthusiasts, and wild souls.",
+    "contact_email": "info@vyrogear.com",
+    "currency": "USD",
+    "checkout_mode": "PRINTIFY_POPUP",
+    "static_only_mode": true
+};
+
+        let catalogProducts = [];
+        let siteSettings = {};
+        let activeFilter = 'all';
+        let searchQuery = '';
+
+        // DOM ELEMENTS
+        const mainHeader = document.getElementById('mainHeader');
+        const searchOpenBtn = document.getElementById('searchOpenBtn');
+        const searchOverlay = document.getElementById('searchOverlay');
+        const searchOverlayInput = document.getElementById('searchOverlayInput');
+        const searchOverlayCloseBtn = document.getElementById('searchOverlayCloseBtn');
+        const searchOverlayClearBtn = document.getElementById('searchOverlayClearBtn');
+        
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const drawerCloseBtn = document.getElementById('drawerCloseBtn');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        const drawerOverlay = document.getElementById('drawerOverlay');
+        
+        const shopSearchInput = document.getElementById('shopSearchInput');
+        const shopSearchClearBtn = document.getElementById('shopSearchClearBtn');
+        const emptyState = document.getElementById('emptyState');
+        const catalogContainer = document.getElementById('catalogContainer');
+        const toastEl = document.getElementById('toast');
+        const toastMessageEl = document.getElementById('toastMessage');
+
+        // Brand grids
+        const gridVyroGear = document.getElementById('grid-vyro-gear');
+        const gridTrueNature = document.getElementById('grid-true-nature');
+        const gridOverhang = document.getElementById('grid-overhang');
+
+        // Brand sections
+        const sectVyroGear = document.getElementById('vyro-gear');
+        const sectTrueNature = document.getElementById('true-nature');
+        const sectOverhang = document.getElementById('overhang');
+
+        // Rows
+        const newDropsRow = document.getElementById('newDropsRow');
+        const bestSellersRow = document.getElementById('bestSellersRow');
+
+        // Scroll Buttons
+        const newDropsScrollLeft = document.getElementById('newDropsScrollLeft');
+        const newDropsScrollRight = document.getElementById('newDropsScrollRight');
+        const bestSellersScrollLeft = document.getElementById('bestSellersScrollLeft');
+        const bestSellersScrollRight = document.getElementById('bestSellersScrollRight');
+
+        // Modal Elements
+        const productModal = document.getElementById('productModal');
+        const modalCloseBtn = document.getElementById('modalCloseBtn');
+        const modalImage = document.getElementById('modalImage');
+        const modalBrand = document.getElementById('modalBrand');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalPrice = document.getElementById('modalPrice');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalSizes = document.getElementById('modalSizes');
+        const modalColors = document.getElementById('modalColors');
+        const modalBuyBtn = document.getElementById('modalBuyBtn');
+
+        // INITIALIZATION
+        window.addEventListener('DOMContentLoaded', () => {
+            initScrollEffects();
+            initSearchOverlay();
+            initMobileMenu();
+            initShopSearch();
+            initModalClose();
+            initRowScrolls();
+            loadCatalog();
+        });
+
+        // Sticky Header scrolling effects
+        function initScrollEffects() {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 30) {
+                    mainHeader.classList.add('scrolled');
+                } else {
+                    mainHeader.classList.remove('scrolled');
+                }
+            });
+        }
+
+        // Row Horizontal Scroll Buttons
+        function initRowScrolls() {
+            newDropsScrollLeft.addEventListener('click', () => {
+                newDropsRow.scrollBy({ left: -320, behavior: 'smooth' });
+            });
+            newDropsScrollRight.addEventListener('click', () => {
+                newDropsRow.scrollBy({ left: 320, behavior: 'smooth' });
+            });
+            bestSellersScrollLeft.addEventListener('click', () => {
+                bestSellersRow.scrollBy({ left: -320, behavior: 'smooth' });
+            });
+            bestSellersScrollRight.addEventListener('click', () => {
+                bestSellersRow.scrollBy({ left: 320, behavior: 'smooth' });
+            });
+        }
+
+        // Search Overlay Drawer
+        function initSearchOverlay() {
+            searchOpenBtn.addEventListener('click', () => {
+                searchOverlay.classList.add('open');
+                searchOverlayInput.focus();
+            });
+            searchOverlayCloseBtn.addEventListener('click', () => {
+                searchOverlay.classList.remove('open');
+            });
+            searchOverlayInput.addEventListener('input', (e) => {
+                const val = e.target.value;
+                if (val.trim()) {
+                    searchOverlayClearBtn.style.display = 'block';
+                } else {
+                    searchOverlayClearBtn.style.display = 'none';
+                }
+                // Live sync to shop input
+                shopSearchInput.value = val;
+                searchQuery = val;
+                if (val) {
+                    shopSearchClearBtn.style.display = 'flex';
+                } else {
+                    shopSearchClearBtn.style.display = 'none';
+                }
+                renderCatalog();
+            });
+            searchOverlayClearBtn.addEventListener('click', () => {
+                searchOverlayInput.value = '';
+                searchOverlayClearBtn.style.display = 'none';
+                shopSearchInput.value = '';
+                searchQuery = '';
+                shopSearchClearBtn.style.display = 'none';
+                renderCatalog();
+                searchOverlayInput.focus();
+            });
+        }
+
+        // Mobile drawer menu logic
+        function initMobileMenu() {
+            hamburgerBtn.addEventListener('click', () => toggleMobileMenu(true));
+            drawerCloseBtn.addEventListener('click', () => toggleMobileMenu(false));
+            drawerOverlay.addEventListener('click', () => toggleMobileMenu(false));
+            
+            // Drawer link smooth scroll and auto close
+            document.querySelectorAll('.drawer-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    toggleMobileMenu(false);
+                });
+            });
+        }
+
+        function toggleMobileMenu(open) {
+            if (open) {
+                mobileDrawer.classList.add('open');
+                drawerOverlay.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileDrawer.classList.remove('open');
+                drawerOverlay.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Shop Search Controls
+        function initShopSearch() {
+            shopSearchInput.addEventListener('input', (e) => {
+                searchQuery = e.target.value;
+                // Sync back to overlay search input
+                searchOverlayInput.value = searchQuery;
+                if (searchQuery.trim()) {
+                    shopSearchClearBtn.style.display = 'flex';
+                    searchOverlayClearBtn.style.display = 'block';
+                } else {
+                    shopSearchClearBtn.style.display = 'none';
+                    searchOverlayClearBtn.style.display = 'none';
+                }
+                renderCatalog();
+            });
+
+            shopSearchClearBtn.addEventListener('click', () => {
+                shopSearchInput.value = '';
+                searchOverlayInput.value = '';
+                searchQuery = '';
+                shopSearchClearBtn.style.display = 'none';
+                searchOverlayClearBtn.style.display = 'none';
+                renderCatalog();
+                shopSearchInput.focus();
+            });
+        }
+
+        // Fetch catalog.json relative to the site
+        async function loadCatalog() {
+            try {
+                const response = await fetch('data/catalog.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                const data = await response.json();
+                catalogProducts = data.products;
+                siteSettings = data.site_settings;
+                console.log("Successfully loaded catalog from data/catalog.json");
+            } catch (e) {
+                console.warn("Could not load catalog.json, using high-quality local fallbacks.", e);
+                catalogProducts = fallbackProducts;
+                siteSettings = fallbackSettings;
+            } finally {
+                renderNewDrops();
+                renderBestSellers();
+                renderCatalog();
+                initLazyLoading();
+            }
+        }
+
+        function getPrintifyProductUrl(product) {
+            const directUrl = product.printify?.product_url || product.printify_url;
+            if (directUrl && !directUrl.includes('PLACEHOLDER')) return directUrl;
+
+            const variantUrl = product.printify?.variants?.find(variant => variant.url && !variant.url.includes('PLACEHOLDER'))?.url;
+            return variantUrl || null;
+        }
+
+        function hasVerifiedPrintifyLink(product) {
+            return Boolean(product.printify_url_verified && getPrintifyProductUrl(product));
+        }
+
+        // HTML generator for Product Card
+        function createProductCardMarkup(p) {
+            const printifyUrl = getPrintifyProductUrl(p);
+            const buyButton = hasVerifiedPrintifyLink(p)
+                ? `<a href="${printifyUrl}" target="_blank" rel="noopener" class="card-buy-btn buy-verified">
+                    Buy On Printify
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>`
+                : `<span class="card-buy-btn coming-soon">Coming Soon</span>`;
+
+            // Simple pretty label for collection
+            let collectionLabel = p.collection.replace('-', ' ').toUpperCase();
+            if (collectionLabel === 'OVERHANG') {
+                collectionLabel = 'OVERHANG TREE CO.';
+            }
+
+            return `
+                <article class="product-card" id="card-${p.id}">
+                    <div class="card-img-container" onclick="openProductModal('${p.id}')">
+                        <span class="collection-badge">${collectionLabel}</span>
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 125' fill='%231c1c14'></svg>" 
+                             data-src="${p.image}" 
+                             alt="${p.name}" 
+                             class="lazy-load">
+                    </div>
+                    <div class="card-info">
+                        <h3 class="product-title" onclick="openProductModal('${p.id}')">${p.name}</h3>
+                        <div class="card-meta">
+                            <span class="card-price">$${p.price}</span>
+                        </div>
+                        ${buyButton}
+                    </div>
+                </article>
+            `;
+        }
+
+        // Render New Drops Row (First 6 products)
+        function renderNewDrops() {
+            const newProducts = catalogProducts.slice(0, 6);
+            newDropsRow.innerHTML = newProducts.map(p => createProductCardMarkup(p)).join('');
+        }
+
+        // Render Best Sellers Row (Featured products only)
+        function renderBestSellers() {
+            const featuredProducts = catalogProducts.filter(p => p.featured === true);
+            bestSellersRow.innerHTML = featuredProducts.map(p => createProductCardMarkup(p)).join('');
+        }
+
+        // Master Catalog Render & Filter
+        function renderCatalog() {
+            // Apply search query first
+            const query = searchQuery.trim().toLowerCase();
+            const matchedProducts = catalogProducts.filter(product => {
+                if (!query) return true;
+                return product.name.toLowerCase().includes(query) || 
+                       product.description.toLowerCase().includes(query) ||
+                       product.collection.toLowerCase().includes(query);
+            });
+
+            // Group filtered products by collection
+            const vyroProducts = matchedProducts.filter(p => p.collection === "vyro-gear");
+            const natureProducts = matchedProducts.filter(p => p.collection === "true-nature");
+            const overhangProducts = matchedProducts.filter(p => p.collection === "overhang");
+
+            // Check visibilities based on current active tab filter
+            const showVyro = (activeFilter === 'all' || activeFilter === 'vyro-gear') && vyroProducts.length > 0;
+            const showNature = (activeFilter === 'all' || activeFilter === 'true-nature') && natureProducts.length > 0;
+            const showOverhang = (activeFilter === 'all' || activeFilter === 'overhang') && overhangProducts.length > 0;
+
+            // Render Vyro Gear Section
+            if (showVyro) {
+                sectVyroGear.style.display = 'block';
+                gridVyroGear.innerHTML = vyroProducts.map(p => createProductCardMarkup(p)).join('');
+            } else {
+                sectVyroGear.style.display = 'none';
+            }
+
+            // Render True Nature Section
+            if (showNature) {
+                sectTrueNature.style.display = 'block';
+                gridTrueNature.innerHTML = natureProducts.map(p => createProductCardMarkup(p)).join('');
+            } else {
+                sectTrueNature.style.display = 'none';
+            }
+
+            // Render Overhang Section
+            if (showOverhang) {
+                sectOverhang.style.display = 'block';
+                gridOverhang.innerHTML = overhangProducts.map(p => createProductCardMarkup(p)).join('');
+            } else {
+                sectOverhang.style.display = 'none';
+            }
+
+            // Handle Global Empty States
+            const totalVisible = (showVyro ? vyroProducts.length : 0) + 
+                                 (showNature ? natureProducts.length : 0) + 
+                                 (showOverhang ? overhangProducts.length : 0);
+
+            if (totalVisible === 0) {
+                emptyState.classList.add('visible');
+                catalogContainer.style.display = 'none';
+            } else {
+                emptyState.classList.remove('visible');
+                catalogContainer.style.display = 'block';
+            }
+
+            // Bind new image listeners
+            initLazyLoading();
+        }
+
+        // Set Shop Collection Filter tab
+        function setShopFilter(filterName) {
+            activeFilter = filterName;
+            
+            // Update filter pill UI
+            document.querySelectorAll('.filter-pill').forEach(pill => {
+                pill.classList.remove('active');
+            });
+            const activePill = document.getElementById(`filter-${filterName}`);
+            if (activePill) activePill.classList.add('active');
+
+            renderCatalog();
+        }
+
+        // Reset Filters on empty state
+        function resetCatalogFilters() {
+            shopSearchInput.value = '';
+            searchOverlayInput.value = '';
+            searchQuery = '';
+            shopSearchClearBtn.style.display = 'none';
+            searchOverlayClearBtn.style.display = 'none';
+            setShopFilter('all');
+        }
+
+        // Lazy loading image handler using IntersectionObserver
+        function initLazyLoading() {
+            const lazyImages = document.querySelectorAll('img.lazy-load');
+            
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const image = entry.target;
+                            const src = image.getAttribute('data-src');
+                            if (src) {
+                                image.src = src;
+                                image.classList.remove('lazy-load');
+                                image.style.opacity = '1';
+                            }
+                            imageObserver.unobserve(image);
+                        }
+                    });
+                }, {
+                    rootMargin: '0px 0px 200px 0px'
+                });
+                
+                lazyImages.forEach(image => {
+                    imageObserver.observe(image);
+                });
+            } else {
+                // Fallback for older browsers
+                lazyImages.forEach(image => {
+                    const src = image.getAttribute('data-src');
+                    if (src) {
+                        image.src = src;
+                        image.style.opacity = '1';
+                    }
+                });
+            }
+        }
+
+        /* PRODUCT DETAIL MODAL */
+        function openProductModal(id) {
+            const product = catalogProducts.find(p => p.id === id);
+            if (!product) return;
+
+            // Populate content
+            modalTitle.textContent = product.name;
+            modalPrice.textContent = `$${product.price}`;
+            modalDescription.textContent = product.description;
+            modalImage.src = product.image;
+            modalImage.alt = product.name;
+
+            // Set Brand and colors
+            let formattedBrand = product.collection.replace('-', ' ').toUpperCase();
+            if (formattedBrand === 'OVERHANG') {
+                formattedBrand = 'OVERHANG TREE CO.';
+            }
+            modalBrand.textContent = formattedBrand;
+
+            // Render sizes visually
+            if (product.sizes && product.sizes.length > 0) {
+                document.getElementById('sizeGroupContainer').style.display = 'flex';
+                modalSizes.innerHTML = product.sizes.map((s, i) => 
+                    `<button class="pill-opt ${i === 0 ? 'selected' : ''}" onclick="selectSizeOpt(this)">${s}</button>`
+                ).join('');
+            } else {
+                document.getElementById('sizeGroupContainer').style.display = 'none';
+            }
+
+            // Render colors visually
+            if (product.colors && product.colors.length > 0) {
+                document.getElementById('colorGroupContainer').style.display = 'flex';
+                modalColors.innerHTML = product.colors.map((c, i) => 
+                    `<button class="chip-opt ${i === 0 ? 'selected' : ''}" onclick="selectColorOpt(this)">${c}</button>`
+                ).join('');
+            } else {
+                document.getElementById('colorGroupContainer').style.display = 'none';
+            }
+
+            // Buy button Printify url check
+            const printifyUrl = getPrintifyProductUrl(product);
+            if (hasVerifiedPrintifyLink(product)) {
+                modalBuyBtn.href = printifyUrl;
+                modalBuyBtn.target = '_blank';
+                modalBuyBtn.rel = 'noopener';
+                modalBuyBtn.textContent = 'Buy on Printify';
+                modalBuyBtn.className = 'modal-buy-btn buy-verified';
+                modalBuyBtn.style.pointerEvents = 'auto';
+            } else {
+                modalBuyBtn.href = '#';
+                modalBuyBtn.removeAttribute('target');
+                modalBuyBtn.removeAttribute('rel');
+                modalBuyBtn.textContent = 'Coming Soon';
+                modalBuyBtn.className = 'modal-buy-btn coming-soon';
+                modalBuyBtn.style.pointerEvents = 'none';
+            }
+
+            // Open Modal
+            productModal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProductModal() {
+            productModal.classList.remove('open');
+            document.body.style.overflow = '';
+            setTimeout(() => {
+                modalImage.src = ''; // Clean source to optimize resources
+            }, 300);
+        }
+
+        function selectSizeOpt(btn) {
+            const pills = btn.parentElement.querySelectorAll('.pill-opt');
+            pills.forEach(p => p.classList.remove('selected'));
+            btn.classList.add('selected');
+        }
+
+        function selectColorOpt(btn) {
+            const chips = btn.parentElement.querySelectorAll('.chip-opt');
+            chips.forEach(c => c.classList.remove('selected'));
+            btn.classList.add('selected');
+        }
+
+        function initModalClose() {
+            modalCloseBtn.addEventListener('click', closeProductModal);
+            
+            // Close when clicking overlay backdrop
+            productModal.addEventListener('click', (e) => {
+                if (e.target === productModal) {
+                    closeProductModal();
+                }
+            });
+
+            // Close on ESC key press
+            window.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && productModal.classList.contains('open')) {
+                    closeProductModal();
+                }
+            });
+        }
+
+        // Email Subscription Handler
+        function handleSubscribe(event) {
+            event.preventDefault();
+            const emailInput = document.getElementById('subscriberEmail');
+            const email = emailInput.value.trim();
+            if (email) {
+                emailInput.value = '';
+                showToast("Welcome aboard! Check your email for field drops.");
+            }
+        }
+
+        /* TOAST UTILITY */
+        let toastTimeout;
+        function showToast(message) {
+            toastMessageEl.textContent = message;
+            toastEl.classList.add('visible');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toastEl.classList.remove('visible');
+            }, 3000);
+        }
+
+    </script>
+</body>
+</html>
