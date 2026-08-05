@@ -352,6 +352,82 @@
       font-size: 22px;
     }
 
+    .store-card-preview {
+      background: #222219;
+      color: #e8e6e0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid #2e2e24;
+      max-width: 360px;
+    }
+
+    .store-card-image {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      background: #1c1c14;
+    }
+
+    .store-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .store-card-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(22, 22, 15, 0.82);
+      border: 1px solid #c4a875;
+      color: #c4a875;
+      padding: 4px 9px;
+      border-radius: 2px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .store-card-body {
+      padding: 16px;
+    }
+
+    .store-card-body h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      color: #e8e6e0;
+    }
+
+    .store-card-description {
+      color: #a5a39c;
+      font-size: 13px;
+      min-height: 56px;
+      margin: 0 0 14px;
+    }
+
+    .store-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .store-card-price {
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .store-card-button {
+      background: #2f3325;
+      color: #c4a875;
+      border-radius: 2px;
+      padding: 8px 10px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
     .badge-row {
       display: flex;
       gap: 8px;
@@ -470,6 +546,48 @@
       font-weight: 900;
     }
 
+    .preview-frame {
+      width: 100%;
+      min-height: 520px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .tool-layout {
+      display: grid;
+      grid-template-columns: 340px minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+    }
+
+    .canvas-wrap {
+      display: grid;
+      gap: 12px;
+      justify-items: start;
+    }
+
+    canvas {
+      max-width: 100%;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(45deg, #ddd 25%, transparent 25%),
+        linear-gradient(-45deg, #ddd 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #ddd 75%),
+        linear-gradient(-45deg, transparent 75%, #ddd 75%);
+      background-size: 20px 20px;
+      background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+    }
+
+    .color-chip {
+      width: 36px;
+      height: 36px;
+      border-radius: 6px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
     .hidden {
       display: none !important;
     }
@@ -499,7 +617,8 @@
       }
 
       .form-grid,
-      .preview {
+      .preview,
+      .tool-layout {
         grid-template-columns: 1fr;
       }
     }
@@ -517,6 +636,7 @@
         <button class="active" data-view="dashboard">Dashboard</button>
         <button data-view="products">Products</button>
         <button data-view="layout">Layout OS</button>
+        <button data-view="imageTools">Image Tools</button>
         <button data-view="printify">Printify Match</button>
         <button data-view="settings">Store Settings</button>
       </nav>
@@ -605,8 +725,21 @@
           <div class="panel-body">
             <div id="noProduct" class="notice">Choose a product to edit.</div>
             <div id="productEditor" class="hidden">
-              <div class="preview">
-                <img id="previewImage" alt="">
+              <div class="preview" style="grid-template-columns: minmax(260px, 360px) minmax(0, 1fr);">
+                <div class="store-card-preview">
+                  <div class="store-card-image">
+                    <img id="previewImage" alt="">
+                    <span class="store-card-badge" id="previewCollectionBadge"></span>
+                  </div>
+                  <div class="store-card-body">
+                    <h3 id="previewCardName"></h3>
+                    <p class="store-card-description" id="previewCardDescription"></p>
+                    <div class="store-card-footer">
+                      <span class="store-card-price" id="previewCardPrice"></span>
+                      <span class="store-card-button" id="previewCardButton"></span>
+                    </div>
+                  </div>
+                </div>
                 <div>
                   <h3 id="previewName"></h3>
                   <p class="subtle" id="previewDescription"></p>
@@ -701,6 +834,45 @@
             <div id="mediaSlotEditor" class="grid"></div>
           </div>
         </article>
+
+        <article class="panel span-12">
+          <div class="panel-header">
+            <h2>Storefront Preview</h2>
+            <a class="btn" href="index.html" target="_blank" rel="noopener">Open full page</a>
+          </div>
+          <div class="panel-body">
+            <iframe class="preview-frame" src="index.html" title="Storefront preview"></iframe>
+          </div>
+        </article>
+      </section>
+
+      <section id="imageToolsView" class="grid hidden">
+        <article class="panel span-12">
+          <div class="panel-header">
+            <h2>Transparent PNG Maker</h2>
+            <button class="btn primary" id="downloadTransparent" disabled>Download transparent PNG</button>
+          </div>
+          <div class="panel-body">
+            <div class="tool-layout">
+              <div class="os-card">
+                <label>Upload image <input id="extractImageFile" type="file" accept="image/*"></label>
+                <label>Output file name <input id="extractFileName" placeholder="product-transparent.png"></label>
+                <label>Background tolerance <input id="extractTolerance" type="range" min="0" max="140" value="36"></label>
+                <label>Edge softness <input id="extractSoftness" type="range" min="0" max="80" value="18"></label>
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <div class="color-chip" id="pickedColor"></div>
+                  <p class="subtle">Click the image background to pick the color to remove.</p>
+                </div>
+                <button class="btn" id="applyExtraction" disabled>Apply transparent background</button>
+                <button class="btn" id="useTransparentPath" disabled>Use filename on selected product</button>
+                <div class="notice">This creates a downloadable transparent PNG in your browser. For the live store, add that PNG to the repo's `images/` folder and use that image path on the product.</div>
+              </div>
+              <div class="canvas-wrap">
+                <canvas id="extractCanvas" width="720" height="720"></canvas>
+              </div>
+            </div>
+          </div>
+        </article>
       </section>
 
       <section id="printifyView" class="grid hidden">
@@ -779,6 +951,7 @@
       dashboard: document.getElementById('dashboardView'),
       products: document.getElementById('productsView'),
       layout: document.getElementById('layoutView'),
+      imageTools: document.getElementById('imageToolsView'),
       printify: document.getElementById('printifyView'),
       settings: document.getElementById('settingsView')
     };
@@ -787,8 +960,17 @@
       dashboard: ['Dashboard', 'Catalog health, visitor status, and quick actions.'],
       products: ['Products', 'Edit product copy, pricing, images, Printify IDs, and variant links.'],
       layout: ['Layout OS', 'Move products around and swap marketing pictures without touching storefront code.'],
+      imageTools: ['Image Tools', 'Make quick transparent PNGs for product mockups and campaign assets.'],
       printify: ['Printify Match', 'Prepare storefront products to connect with Printify products and variants.'],
       settings: ['Store Settings', 'Change global store copy and collection descriptions.']
+    };
+
+    const extraction = {
+      image: null,
+      selectedColor: [255, 255, 255],
+      originalPixels: null,
+      width: 0,
+      height: 0
     };
 
     const productFields = {
@@ -966,15 +1148,25 @@
       productFields.printifyUrl.value = product.printify.product_url || product.printify_url || '';
       productFields.printifyVerified.value = String(Boolean(product.printify_url_verified));
 
+      updateProductPreview(product);
+      renderVariantTable(product);
+    }
+
+    function updateProductPreview(product = selectedProduct()) {
+      if (!product) return;
       document.getElementById('previewImage').src = product.image || '';
       document.getElementById('previewName').textContent = product.name || '';
       document.getElementById('previewDescription').textContent = product.description || '';
+      document.getElementById('previewCollectionBadge').textContent = product.collection || '';
+      document.getElementById('previewCardName').textContent = product.name || '';
+      document.getElementById('previewCardDescription').textContent = product.description || '';
+      document.getElementById('previewCardPrice').textContent = `$${product.price ?? 0}`;
+      document.getElementById('previewCardButton').textContent = product.printify_url_verified ? 'Buy on Printify' : 'Coming Soon';
       document.getElementById('previewBadges').innerHTML = `
         <span class="badge">${product.collection}</span>
         <span class="badge ${product.printify_url_verified ? 'live' : 'draft'}">${product.printify_url_verified ? 'Printify live' : 'Coming Soon'}</span>
         <span class="badge ${product.featured ? 'live' : ''}">${product.featured ? 'Featured' : 'Not featured'}</span>
       `;
-      renderVariantTable(product);
     }
 
     function productName(productId) {
@@ -1141,7 +1333,7 @@
       if (oldId !== product.id) state.selectedProductId = product.id;
       renderDashboard();
       renderProductList();
-      renderProductEditor();
+      updateProductPreview(product);
       renderLayout();
       renderPrintifyMatch();
     }
@@ -1229,6 +1421,107 @@
       renderAll();
     }
 
+    function drawExtractionImage() {
+      const canvas = document.getElementById('extractCanvas');
+      const context = canvas.getContext('2d', { willReadFrequently: true });
+      if (!extraction.image) {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        return;
+      }
+
+      const maxSize = 900;
+      const scale = Math.min(maxSize / extraction.image.width, maxSize / extraction.image.height, 1);
+      extraction.width = Math.round(extraction.image.width * scale);
+      extraction.height = Math.round(extraction.image.height * scale);
+      canvas.width = extraction.width;
+      canvas.height = extraction.height;
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.drawImage(extraction.image, 0, 0, extraction.width, extraction.height);
+      extraction.originalPixels = context.getImageData(0, 0, extraction.width, extraction.height);
+    }
+
+    function setPickedColor(rgb) {
+      extraction.selectedColor = rgb;
+      document.getElementById('pickedColor').style.background = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+    }
+
+    function loadExtractionFile(file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const image = new Image();
+        image.onload = () => {
+          extraction.image = image;
+          drawExtractionImage();
+          const name = file.name.replace(/\.[^.]+$/, '');
+          document.getElementById('extractFileName').value = `${name}-transparent.png`;
+          document.getElementById('applyExtraction').disabled = false;
+          document.getElementById('downloadTransparent').disabled = false;
+          document.getElementById('useTransparentPath').disabled = false;
+        };
+        image.src = reader.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function pickCanvasColor(event) {
+      if (!extraction.originalPixels) return;
+      const canvas = document.getElementById('extractCanvas');
+      const rect = canvas.getBoundingClientRect();
+      const x = Math.floor((event.clientX - rect.left) * (canvas.width / rect.width));
+      const y = Math.floor((event.clientY - rect.top) * (canvas.height / rect.height));
+      const context = canvas.getContext('2d', { willReadFrequently: true });
+      const pixel = context.getImageData(x, y, 1, 1).data;
+      setPickedColor([pixel[0], pixel[1], pixel[2]]);
+      applyExtraction();
+    }
+
+    function applyExtraction() {
+      if (!extraction.originalPixels) return;
+      const canvas = document.getElementById('extractCanvas');
+      const context = canvas.getContext('2d', { willReadFrequently: true });
+      const tolerance = Number(document.getElementById('extractTolerance').value);
+      const softness = Number(document.getElementById('extractSoftness').value);
+      const output = new ImageData(new Uint8ClampedArray(extraction.originalPixels.data), extraction.width, extraction.height);
+      const [red, green, blue] = extraction.selectedColor;
+
+      for (let index = 0; index < output.data.length; index += 4) {
+        const distance = Math.sqrt(
+          Math.pow(output.data[index] - red, 2) +
+          Math.pow(output.data[index + 1] - green, 2) +
+          Math.pow(output.data[index + 2] - blue, 2)
+        );
+
+        if (distance <= tolerance) {
+          output.data[index + 3] = 0;
+        } else if (softness > 0 && distance <= tolerance + softness) {
+          const fade = (distance - tolerance) / softness;
+          output.data[index + 3] = Math.round(output.data[index + 3] * fade);
+        }
+      }
+
+      context.putImageData(output, 0, 0);
+    }
+
+    function downloadTransparentImage() {
+      const canvas = document.getElementById('extractCanvas');
+      const link = document.createElement('a');
+      link.href = canvas.toDataURL('image/png');
+      link.download = document.getElementById('extractFileName').value.trim() || 'transparent-product.png';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    }
+
+    function useTransparentPathOnProduct() {
+      const product = selectedProduct();
+      const filename = document.getElementById('extractFileName').value.trim();
+      if (!product || !filename) return;
+      product.image = `images/${filename}`;
+      productFields.image.value = product.image;
+      renderProductEditor();
+      renderProductList();
+    }
+
     document.querySelectorAll('nav button').forEach(button => {
       button.addEventListener('click', () => {
         state.activeView = button.dataset.view;
@@ -1239,7 +1532,10 @@
       });
     });
 
-    Object.values(productFields).forEach(input => input.addEventListener('change', updateSelectedProduct));
+    Object.values(productFields).forEach(input => {
+      input.addEventListener('input', updateSelectedProduct);
+      input.addEventListener('change', updateSelectedProduct);
+    });
     document.getElementById('productSearch').addEventListener('input', renderProductList);
     document.getElementById('downloadCatalog').addEventListener('click', downloadCatalog);
     document.getElementById('importCatalog').addEventListener('change', event => {
@@ -1273,6 +1569,16 @@
     });
     document.getElementById('loadPrintifyExample').addEventListener('click', () => loadPrintifyCatalog('data/printify-catalog.example.json'));
     document.getElementById('reloadAnalytics').addEventListener('click', loadAnalytics);
+    document.getElementById('extractImageFile').addEventListener('change', event => {
+      if (event.target.files?.[0]) loadExtractionFile(event.target.files[0]);
+    });
+    document.getElementById('extractCanvas').addEventListener('click', pickCanvasColor);
+    document.getElementById('applyExtraction').addEventListener('click', applyExtraction);
+    document.getElementById('extractTolerance').addEventListener('input', applyExtraction);
+    document.getElementById('extractSoftness').addEventListener('input', applyExtraction);
+    document.getElementById('downloadTransparent').addEventListener('click', downloadTransparentImage);
+    document.getElementById('useTransparentPath').addEventListener('click', useTransparentPathOnProduct);
+    setPickedColor([255, 255, 255]);
 
     loadCatalog().then(() => {
       loadAnalytics();
