@@ -7,7 +7,32 @@
     "contact_email": "info@vyrogear.com",
     "currency": "USD",
     "checkout_mode": "PRINTIFY_POPUP",
-    "static_only_mode": true
+    "static_only_mode": true,
+    "media_slots": {
+      "hero": "images/lifestyle-hero-campaign.jpg",
+      "vyro_gear_door": "images/lifestyle-vyro-gear-campaign.jpg",
+      "true_nature_door": "images/lifestyle-true-nature-campaign.jpg",
+      "overhang_door": "images/lifestyle-overhang-campaign.jpg",
+      "overhang_promo": "images/lifestyle-overhang-campaign.jpg",
+      "true_nature_promo": "images/lifestyle-true-nature-campaign.jpg"
+    },
+    "storefront_order": {
+      "new_drops": [
+        "vg-tee",
+        "vg-trucker",
+        "vg-snapback",
+        "vg-field-hoodie",
+        "vg-skull-hoodie",
+        "tn-morel-tee"
+      ],
+      "best_sellers": [
+        "vg-tee",
+        "vg-field-hoodie",
+        "tn-morel-tee",
+        "tn-skull-sweat",
+        "otc-hoodie"
+      ]
+    }
   },
   "collections": [
     {

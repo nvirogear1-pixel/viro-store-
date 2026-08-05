@@ -1810,7 +1810,7 @@
     </div>
 
     <!-- HERO SECTION -->
-    <section class="hero" id="home">
+    <section class="hero" id="home" data-media-slot="hero">
         <div class="hero-content">
             <div class="hero-badge">
                 <span class="badge-pod">PRINT-ON-DEMAND APPAREL</span>
@@ -1829,7 +1829,7 @@
         <div class="doors-grid">
             <!-- Vyro Gear Door -->
             <a href="#vyro-gear" class="door-card">
-                <div class="door-bg" style="background-image: url('images/lifestyle-vyro-gear-campaign.jpg');"></div>
+                <div class="door-bg" data-media-slot="vyro_gear_door" style="background-image: url('images/lifestyle-vyro-gear-campaign.jpg');"></div>
                 <div class="door-overlay"></div>
                 <div class="door-content">
                     <h2>VYRO GEAR</h2>
@@ -1840,7 +1840,7 @@
 
             <!-- True Nature Door -->
             <a href="#true-nature" class="door-card">
-                <div class="door-bg" style="background-image: url('images/lifestyle-true-nature-campaign.jpg');"></div>
+                <div class="door-bg" data-media-slot="true_nature_door" style="background-image: url('images/lifestyle-true-nature-campaign.jpg');"></div>
                 <div class="door-overlay"></div>
                 <div class="door-content">
                     <h2>TRUE NATURE</h2>
@@ -1851,7 +1851,7 @@
 
             <!-- Overhang Door -->
             <a href="#overhang" class="door-card">
-                <div class="door-bg" style="background-image: url('images/lifestyle-overhang-campaign.jpg');"></div>
+                <div class="door-bg" data-media-slot="overhang_door" style="background-image: url('images/lifestyle-overhang-campaign.jpg');"></div>
                 <div class="door-overlay"></div>
                 <div class="door-content">
                     <h2>OVERHANG TREE CO.</h2>
@@ -1978,7 +1978,7 @@
     <div class="container" style="margin-top: 80px;">
         <!-- a. OVERHANG PROMO -->
         <section class="promo-section" style="background-color: #222219;">
-            <div class="promo-bg" style="background-image: linear-gradient(90deg, rgba(22, 22, 15, 0.98) 0%, rgba(22, 22, 15, 0.7) 100%), url('images/lifestyle-overhang-campaign.jpg');"></div>
+            <div class="promo-bg" data-media-slot="overhang_promo" data-media-gradient="linear-gradient(90deg, rgba(22, 22, 15, 0.98) 0%, rgba(22, 22, 15, 0.7) 100%)" style="background-image: linear-gradient(90deg, rgba(22, 22, 15, 0.98) 0%, rgba(22, 22, 15, 0.7) 100%), url('images/lifestyle-overhang-campaign.jpg');"></div>
             <div class="promo-overlay"></div>
             <div class="promo-content">
                 <h2>For Those Who<br>Work <span>Outside</span></h2>
@@ -1989,7 +1989,7 @@
 
         <!-- b. TRUE NATURE PROMO -->
         <section class="promo-section promo-alt">
-            <div class="promo-bg" style="background-image: linear-gradient(-90deg, rgba(22, 22, 15, 0.98) 0%, rgba(22, 22, 15, 0.7) 100%), url('images/lifestyle-true-nature-campaign.jpg');"></div>
+            <div class="promo-bg" data-media-slot="true_nature_promo" data-media-gradient="linear-gradient(-90deg, rgba(22, 22, 15, 0.98) 0%, rgba(22, 22, 15, 0.7) 100%)" style="background-image: linear-gradient(-90deg, rgba(22, 22, 15, 0.98) 0%, rgba(22, 22, 15, 0.7) 100%), url('images/lifestyle-true-nature-campaign.jpg');"></div>
             <div class="promo-overlay"></div>
             <div class="promo-content">
                 <h2>Built for Slow Nights<br>and <span>Early Starts</span></h2>
@@ -4204,7 +4204,32 @@
     "contact_email": "info@vyrogear.com",
     "currency": "USD",
     "checkout_mode": "PRINTIFY_POPUP",
-    "static_only_mode": true
+    "static_only_mode": true,
+    "media_slots": {
+        "hero": "images/lifestyle-hero-campaign.jpg",
+        "vyro_gear_door": "images/lifestyle-vyro-gear-campaign.jpg",
+        "true_nature_door": "images/lifestyle-true-nature-campaign.jpg",
+        "overhang_door": "images/lifestyle-overhang-campaign.jpg",
+        "overhang_promo": "images/lifestyle-overhang-campaign.jpg",
+        "true_nature_promo": "images/lifestyle-true-nature-campaign.jpg"
+    },
+    "storefront_order": {
+        "new_drops": [
+            "vg-tee",
+            "vg-trucker",
+            "vg-snapback",
+            "vg-field-hoodie",
+            "vg-skull-hoodie",
+            "tn-morel-tee"
+        ],
+        "best_sellers": [
+            "vg-tee",
+            "vg-field-hoodie",
+            "tn-morel-tee",
+            "tn-skull-sweat",
+            "otc-hoodie"
+        ]
+    }
 };
 
         let catalogProducts = [];
@@ -4408,11 +4433,39 @@
                 catalogProducts = fallbackProducts;
                 siteSettings = fallbackSettings;
             } finally {
+                applySiteSettings();
                 renderNewDrops();
                 renderBestSellers();
                 renderCatalog();
                 initLazyLoading();
             }
+        }
+
+        function applySiteSettings() {
+            if (!siteSettings) return;
+            const mediaSlots = siteSettings.media_slots || {};
+
+            document.querySelectorAll('[data-media-slot]').forEach(element => {
+                const slot = element.getAttribute('data-media-slot');
+                const image = mediaSlots[slot];
+                if (!image) return;
+
+                const gradient = element.getAttribute('data-media-gradient');
+                const heroGradient = element.classList.contains('hero')
+                    ? 'linear-gradient(rgba(16, 16, 11, 0.6), rgba(16, 16, 11, 0.9))'
+                    : null;
+                const overlay = gradient || heroGradient;
+                element.style.backgroundImage = overlay ? `${overlay}, url('${image}')` : `url('${image}')`;
+            });
+        }
+
+        function productsByOrder(productIds, fallbackProducts) {
+            if (!Array.isArray(productIds) || productIds.length === 0) {
+                return fallbackProducts;
+            }
+
+            const productMap = new Map(catalogProducts.map(product => [product.id, product]));
+            return productIds.map(id => productMap.get(id)).filter(Boolean);
         }
 
         function getPrintifyProductUrl(product) {
@@ -4469,13 +4522,13 @@
 
         // Render New Drops Row (First 6 products)
         function renderNewDrops() {
-            const newProducts = catalogProducts.slice(0, 6);
+            const newProducts = productsByOrder(siteSettings.storefront_order?.new_drops, catalogProducts.slice(0, 6));
             newDropsRow.innerHTML = newProducts.map(p => createProductCardMarkup(p)).join('');
         }
 
         // Render Best Sellers Row (Featured products only)
         function renderBestSellers() {
-            const featuredProducts = catalogProducts.filter(p => p.featured === true);
+            const featuredProducts = productsByOrder(siteSettings.storefront_order?.best_sellers, catalogProducts.filter(p => p.featured === true));
             bestSellersRow.innerHTML = featuredProducts.map(p => createProductCardMarkup(p)).join('');
         }
 
