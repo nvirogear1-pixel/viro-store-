@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vyro Gear Admin</title>
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #f5f2ea;
+      --panel: #ffffff;
+      --ink: #171811;
+      --muted: #66695f;
+      --line: #ddd8ca;
+      --field: #fbfaf6;
+      --green: #596f3f;
+      --green-dark: #33451f;
+      --gold: #a9792f;
+      --red: #a13d36;
+      --shadow: 0 14px 40px rgba(30, 31, 24, 0.12);
+      --radius: 8px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.45;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .shell {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+    }
+
+    aside {
+      background: #191b13;
+      color: #f1eee4;
+      padding: 24px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: auto;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .status {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius);
+      padding: 14px;
+      margin-bottom: 24px;
+      color: #d8d4c7;
+      font-size: 13px;
+    }
+
+    .status strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    nav {
+      display: grid;
+      gap: 8px;
+    }
+
+    nav button {
+      border: 0;
+      border-radius: 6px;
+      padding: 12px 14px;
+      text-align: left;
+      background: transparent;
+      color: #d9d4c5;
+    }
+
+    nav button.active,
+    nav button:hover {
+      background: #2b301f;
+      color: #fff;
+    }
+
+    main {
+      padding: 28px;
+      min-width: 0;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin: 0 0 4px;
+      letter-spacing: 0;
+    }
+
+    .subtle {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .btn {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--ink);
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn.primary {
+      background: var(--green);
+      border-color: var(--green);
+      color: #fff;
+    }
+
+    .btn.warning {
+      border-color: #dec88b;
+      color: #6b4b11;
+      background: #fff8dd;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .panel-header {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .panel-header h2 {
+      font-size: 17px;
+      margin: 0;
+    }
+
+    .panel-body {
+      padding: 18px;
+    }
+
+    .span-4 {
+      grid-column: span 4;
+    }
+
+    .span-3 {
+      grid-column: span 3;
+    }
+
+    .span-6 {
+      grid-column: span 6;
+    }
+
+    .span-5 {
+      grid-column: span 5;
+    }
+
+    .span-7 {
+      grid-column: span 7;
+    }
+
+    .span-8 {
+      grid-column: span 8;
+    }
+
+    .span-12 {
+      grid-column: span 12;
+    }
+
+    .span-full {
+      grid-column: 1 / -1;
+    }
+
+    .metric {
+      display: grid;
+      gap: 4px;
+    }
+
+    .metric .value {
+      font-size: 30px;
+      font-weight: 800;
+    }
+
+    .metric .label {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    label {
+      display: grid;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--field);
+      color: var(--ink);
+      padding: 10px 11px;
+      outline: 0;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 96px;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(89, 111, 63, 0.14);
+    }
+
+    .product-list {
+      display: grid;
+      gap: 8px;
+      max-height: 620px;
+      overflow: auto;
+      padding-right: 4px;
+    }
+
+    .product-row {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 6px;
+      padding: 10px;
+      display: grid;
+      grid-template-columns: 52px minmax(0, 1fr);
+      gap: 10px;
+      align-items: center;
+      text-align: left;
+    }
+
+    .product-row.active {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(89, 111, 63, 0.12);
+    }
+
+    .product-row img {
+      width: 52px;
+      height: 64px;
+      object-fit: cover;
+      border-radius: 5px;
+      background: #eee;
+    }
+
+    .product-row strong {
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: var(--ink);
+      font-size: 14px;
+    }
+
+    .product-row span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .preview {
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 14px;
+      background: #fbfaf6;
+      margin-bottom: 16px;
+    }
+
+    .preview img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 6px;
+      background: #e6e0d0;
+    }
+
+    .preview h3 {
+      margin: 0 0 8px;
+      font-size: 22px;
+    }
+
+    .store-card-preview {
+      background: #222219;
+      color: #e8e6e0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid #2e2e24;
+      max-width: 360px;
+    }
+
+    .store-card-image {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      background: #1c1c14;
+    }
+
+    .store-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .store-card-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(22, 22, 15, 0.82);
+      border: 1px solid #c4a875;
+      color: #c4a875;
+      padding: 4px 9px;
+      border-radius: 2px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .store-card-body {
+      padding: 16px;
+    }
+
+    .store-card-body h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      color: #e8e6e0;
+    }
+
+    .store-card-description {
+      color: #a5a39c;
+      font-size: 13px;
+      min-height: 56px;
+      margin: 0 0 14px;
+    }
+
+    .store-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .store-card-price {
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .store-card-button {
+      background: #2f3325;
+      color: #c4a875;
+      border-radius: 2px;
+      padding: 8px 10px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .badge {
+      border-radius: 999px;
+      background: #eae4d3;
+      color: #49483f;
+      padding: 5px 9px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .badge.live {
+      background: #dfefd5;
+      color: #2d551f;
+    }
+
+    .badge.draft {
+      background: #f3e2db;
+      color: #78402c;
+    }
+
+    .table-wrap {
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 700px;
+      background: #fff;
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid var(--line);
+      padding: 9px;
+      text-align: left;
+      vertical-align: top;
+      font-size: 13px;
+    }
+
+    th {
+      background: #f2ecdd;
+      color: #4a4a40;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    td input {
+      min-width: 170px;
+      padding: 8px;
+      font-size: 13px;
+    }
+
+    .notice {
+      border-left: 4px solid var(--gold);
+      background: #fff8dd;
+      color: #5f4515;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .os-card {
+      display: grid;
+      gap: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 14px;
+      background: #fbfaf6;
+    }
+
+    .media-preview {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 6px;
+      background: #e6e0d0;
+    }
+
+    .order-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    .order-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 10px;
+      background: #fff;
+    }
+
+    .order-tools {
+      display: flex;
+      gap: 6px;
+    }
+
+    .icon-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 6px;
+      border: 1px solid var(--line);
+      background: #f8f5ed;
+      font-weight: 900;
+    }
+
+    .preview-frame {
+      width: 100%;
+      min-height: 520px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .tool-layout {
+      display: grid;
+      grid-template-columns: 340px minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+    }
+
+    .canvas-wrap {
+      display: grid;
+      gap: 12px;
+      justify-items: start;
+    }
+
+    canvas {
+      max-width: 100%;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(45deg, #ddd 25%, transparent 25%),
+        linear-gradient(-45deg, #ddd 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #ddd 75%),
+        linear-gradient(-45deg, transparent 75%, #ddd 75%);
+      background-size: 20px 20px;
+      background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+    }
+
+    .color-chip {
+      width: 36px;
+      height: 36px;
+      border-radius: 6px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 980px) {
+      .shell {
+        grid-template-columns: 1fr;
+      }
+
+      aside {
+        position: static;
+        height: auto;
+      }
+
+      nav {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .span-4,
+      .span-3,
+      .span-6,
+      .span-5,
+      .span-7,
+      .span-8,
+      .span-12 {
+        grid-column: span 12;
+      }
+
+      .form-grid,
+      .preview,
+      .tool-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <aside>
+      <div class="brand">Vyro 3OS</div>
+      <div class="status">
+        <strong>Store operating system</strong>
+        Control products, storefront rows, campaign media, and future Printify matching from one back office.
+      </div>
+      <nav aria-label="Admin sections">
+        <button class="active" data-view="dashboard">Dashboard</button>
+        <button data-view="products">Products</button>
+        <button data-view="layout">Layout OS</button>
+        <button data-view="imageTools">Image Tools</button>
+        <button data-view="printify">Printify Match</button>
+        <button data-view="settings">Store Settings</button>
+      </nav>
+    </aside>
+
+    <main>
+      <div class="topbar">
+        <div>
+          <h1 id="pageTitle">Dashboard</h1>
+          <p class="subtle" id="pageSubtitle">Catalog health, visitor status, and quick actions.</p>
+        </div>
+        <div class="actions">
+          <label class="btn">
+            Import catalog
+            <input class="hidden" id="importCatalog" type="file" accept="application/json">
+          </label>
+          <button class="btn primary" id="downloadCatalog">Download catalog.json</button>
+          <a class="btn" href="index.html" target="_blank" rel="noopener">Open Store</a>
+        </div>
+      </div>
+
+      <section id="dashboardView" class="grid">
+        <article class="panel span-4">
+          <div class="panel-body metric">
+            <div class="value" id="productCount">0</div>
+            <div class="label">Products in catalog</div>
+          </div>
+        </article>
+        <article class="panel span-4">
+          <div class="panel-body metric">
+            <div class="value" id="liveCount">0</div>
+            <div class="label">Products with verified Printify buttons</div>
+          </div>
+        </article>
+        <article class="panel span-4">
+          <div class="panel-body metric">
+            <div class="value" id="featuredCount">0</div>
+            <div class="label">Featured products</div>
+          </div>
+        </article>
+
+        <article class="panel span-8">
+          <div class="panel-header">
+            <h2>Visitor Stats</h2>
+            <button class="btn" id="reloadAnalytics">Reload</button>
+          </div>
+          <div class="panel-body">
+            <div class="notice" id="analyticsNotice">
+              Visitor tracking is not connected yet. Add Netlify Analytics, Plausible, Google Analytics, or another provider, then publish a small `data/analytics.json` feed or wire this panel to that provider's API.
+            </div>
+            <div class="grid" id="analyticsCards" style="margin-top:16px;"></div>
+          </div>
+        </article>
+
+        <article class="panel span-4">
+          <div class="panel-header">
+            <h2>Next Setup</h2>
+          </div>
+          <div class="panel-body">
+            <p class="subtle">To make this a real protected admin, connect Netlify Identity, Netlify Functions, Supabase, or another backend that can save edits and read analytics securely.</p>
+            <div class="badge-row">
+              <span class="badge draft">No backend writes</span>
+              <span class="badge draft">No visitor feed</span>
+              <span class="badge live">Catalog editor ready</span>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="productsView" class="grid hidden">
+        <article class="panel span-5">
+          <div class="panel-header">
+            <h2>Products</h2>
+            <input id="productSearch" type="search" placeholder="Search products">
+          </div>
+          <div class="panel-body">
+            <div class="product-list" id="productList"></div>
+          </div>
+        </article>
+
+        <article class="panel span-7">
+          <div class="panel-header">
+            <h2>Edit Product</h2>
+            <button class="btn warning" id="duplicateProduct">Duplicate</button>
+          </div>
+          <div class="panel-body">
+            <div id="noProduct" class="notice">Choose a product to edit.</div>
+            <div id="productEditor" class="hidden">
+              <div class="preview" style="grid-template-columns: minmax(260px, 360px) minmax(0, 1fr);">
+                <div class="store-card-preview">
+                  <div class="store-card-image">
+                    <img id="previewImage" alt="">
+                    <span class="store-card-badge" id="previewCollectionBadge"></span>
+                  </div>
+                  <div class="store-card-body">
+                    <h3 id="previewCardName"></h3>
+                    <p class="store-card-description" id="previewCardDescription"></p>
+                    <div class="store-card-footer">
+                      <span class="store-card-price" id="previewCardPrice"></span>
+                      <span class="store-card-button" id="previewCardButton"></span>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <h3 id="previewName"></h3>
+                  <p class="subtle" id="previewDescription"></p>
+                  <div class="badge-row" id="previewBadges"></div>
+                </div>
+              </div>
+
+              <div class="form-grid">
+                <label>Name <input id="fieldName"></label>
+                <label>ID <input id="fieldId"></label>
+                <label>Collection
+                  <select id="fieldCollection"></select>
+                </label>
+                <label>Price <input id="fieldPrice" type="number" min="0" step="0.01"></label>
+                <label>Status
+                  <select id="fieldStatus">
+                    <option value="draft">draft</option>
+                    <option value="active">active</option>
+                    <option value="archived">archived</option>
+                  </select>
+                </label>
+                <label>Featured
+                  <select id="fieldFeatured">
+                    <option value="false">No</option>
+                    <option value="true">Yes</option>
+                  </select>
+                </label>
+                <label class="span-full">Image path <input id="fieldImage"></label>
+                <label class="span-full">Description <textarea id="fieldDescription"></textarea></label>
+                <label>Sizes, comma separated <input id="fieldSizes"></label>
+                <label>Colors, comma separated <input id="fieldColors"></label>
+                <label>Printify product ID <input id="fieldPrintifyId" placeholder="Paste product ID"></label>
+                <label>Printify product URL <input id="fieldPrintifyUrl" placeholder="https://..."></label>
+                <label>Verified Printify button
+                  <select id="fieldPrintifyVerified">
+                    <option value="false">No, show Coming Soon</option>
+                    <option value="true">Yes, show Buy button</option>
+                  </select>
+                </label>
+              </div>
+
+              <div class="panel-header" style="padding-left:0;padding-right:0;margin-top:18px;">
+                <h2>Variant Links</h2>
+                <button class="btn" id="rebuildVariants">Rebuild from sizes/colors</button>
+              </div>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Size</th>
+                      <th>Color</th>
+                      <th>Variant ID</th>
+                      <th>Variant URL</th>
+                    </tr>
+                  </thead>
+                  <tbody id="variantTable"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="layoutView" class="grid hidden">
+        <article class="panel span-6">
+          <div class="panel-header">
+            <h2>New Drops Row</h2>
+            <button class="btn" data-order-list="new_drops">Add selected product</button>
+          </div>
+          <div class="panel-body">
+            <div class="notice" style="margin-bottom:14px;">Use these controls to change which products appear first on the storefront.</div>
+            <div class="order-list" id="newDropsOrder"></div>
+          </div>
+        </article>
+
+        <article class="panel span-6">
+          <div class="panel-header">
+            <h2>Best Sellers Row</h2>
+            <button class="btn" data-order-list="best_sellers">Add selected product</button>
+          </div>
+          <div class="panel-body">
+            <div class="notice" style="margin-bottom:14px;">This row can be manually controlled instead of only using the Featured flag.</div>
+            <div class="order-list" id="bestSellersOrder"></div>
+          </div>
+        </article>
+
+        <article class="panel span-12">
+          <div class="panel-header">
+            <h2>Marketing Pictures</h2>
+          </div>
+          <div class="panel-body">
+            <div id="mediaSlotEditor" class="grid"></div>
+          </div>
+        </article>
+
+        <article class="panel span-12">
+          <div class="panel-header">
+            <h2>Storefront Preview</h2>
+            <a class="btn" href="index.html" target="_blank" rel="noopener">Open full page</a>
+          </div>
+          <div class="panel-body">
+            <iframe class="preview-frame" src="index.html" title="Storefront preview"></iframe>
+          </div>
+        </article>
+      </section>
+
+      <section id="imageToolsView" class="grid hidden">
+        <article class="panel span-12">
+          <div class="panel-header">
+            <h2>Transparent PNG Maker</h2>
+            <button class="btn primary" id="downloadTransparent" disabled>Download transparent PNG</button>
+          </div>
+          <div class="panel-body">
+            <div class="tool-layout">
+              <div class="os-card">
+                <label>Upload image <input id="extractImageFile" type="file" accept="image/*"></label>
+                <label>Output file name <input id="extractFileName" placeholder="product-transparent.png"></label>
+                <label>Background tolerance <input id="extractTolerance" type="range" min="0" max="140" value="36"></label>
+                <label>Edge softness <input id="extractSoftness" type="range" min="0" max="80" value="18"></label>
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <div class="color-chip" id="pickedColor"></div>
+                  <p class="subtle">Click the image background to pick the color to remove.</p>
+                </div>
+                <button class="btn" id="applyExtraction" disabled>Apply transparent background</button>
+                <button class="btn" id="useTransparentPath" disabled>Use filename on selected product</button>
+                <div class="notice">This creates a downloadable transparent PNG in your browser. For the live store, add that PNG to the repo's `images/` folder and use that image path on the product.</div>
+              </div>
+              <div class="canvas-wrap">
+                <canvas id="extractCanvas" width="720" height="720"></canvas>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="printifyView" class="grid hidden">
+        <article class="panel span-5">
+          <div class="panel-header">
+            <h2>Store Products</h2>
+          </div>
+          <div class="panel-body">
+            <div class="product-list" id="printifyStoreList"></div>
+          </div>
+        </article>
+
+        <article class="panel span-7">
+          <div class="panel-header">
+            <h2>Printify Catalog</h2>
+            <button class="btn" id="loadPrintifyExample">Load example</button>
+          </div>
+          <div class="panel-body">
+            <div class="notice" id="printifyNotice">When we can export or fetch Printify products, put them in `data/printify-catalog.json`. This screen will let you match those Printify items to storefront products.</div>
+            <div class="table-wrap" style="margin-top:14px;">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Printify Title</th>
+                    <th>Product ID</th>
+                    <th>Status</th>
+                    <th>Link</th>
+                  </tr>
+                </thead>
+                <tbody id="printifyCatalogTable"></tbody>
+              </table>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="settingsView" class="grid hidden">
+        <article class="panel span-12">
+          <div class="panel-header">
+            <h2>Store Settings</h2>
+          </div>
+          <div class="panel-body">
+            <div class="form-grid">
+              <label>Store name <input id="settingName"></label>
+              <label>Tagline <input id="settingTagline"></label>
+              <label>Hero title <input id="settingHeroTitle"></label>
+              <label>Contact email <input id="settingEmail" type="email"></label>
+              <label>Currency <input id="settingCurrency"></label>
+              <label>Checkout mode <input id="settingCheckoutMode"></label>
+              <label class="span-full">Hero subtitle <textarea id="settingHeroSubtitle"></textarea></label>
+              <label class="span-full">Impact message <textarea id="settingImpactMessage"></textarea></label>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel span-12">
+          <div class="panel-header">
+            <h2>Collections</h2>
+          </div>
+          <div class="panel-body">
+            <div id="collectionsEditor" class="grid"></div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const state = {
+      catalog: null,
+      printifyCatalog: null,
+      selectedProductId: null,
+      activeView: 'dashboard'
+    };
+
+    const views = {
+      dashboard: document.getElementById('dashboardView'),
+      products: document.getElementById('productsView'),
+      layout: document.getElementById('layoutView'),
+      imageTools: document.getElementById('imageToolsView'),
+      printify: document.getElementById('printifyView'),
+      settings: document.getElementById('settingsView')
+    };
+
+    const titles = {
+      dashboard: ['Dashboard', 'Catalog health, visitor status, and quick actions.'],
+      products: ['Products', 'Edit product copy, pricing, images, Printify IDs, and variant links.'],
+      layout: ['Layout OS', 'Move products around and swap marketing pictures without touching storefront code.'],
+      imageTools: ['Image Tools', 'Make quick transparent PNGs for product mockups and campaign assets.'],
+      printify: ['Printify Match', 'Prepare storefront products to connect with Printify products and variants.'],
+      settings: ['Store Settings', 'Change global store copy and collection descriptions.']
+    };
+
+    const extraction = {
+      image: null,
+      selectedColor: [255, 255, 255],
+      originalPixels: null,
+      width: 0,
+      height: 0
+    };
+
+    const productFields = {
+      id: document.getElementById('fieldId'),
+      name: document.getElementById('fieldName'),
+      collection: document.getElementById('fieldCollection'),
+      price: document.getElementById('fieldPrice'),
+      status: document.getElementById('fieldStatus'),
+      featured: document.getElementById('fieldFeatured'),
+      image: document.getElementById('fieldImage'),
+      description: document.getElementById('fieldDescription'),
+      sizes: document.getElementById('fieldSizes'),
+      colors: document.getElementById('fieldColors'),
+      printifyId: document.getElementById('fieldPrintifyId'),
+      printifyUrl: document.getElementById('fieldPrintifyUrl'),
+      printifyVerified: document.getElementById('fieldPrintifyVerified')
+    };
+
+    const settingFields = {
+      name: document.getElementById('settingName'),
+      tagline: document.getElementById('settingTagline'),
+      hero_title: document.getElementById('settingHeroTitle'),
+      hero_subtitle: document.getElementById('settingHeroSubtitle'),
+      impact_message: document.getElementById('settingImpactMessage'),
+      contact_email: document.getElementById('settingEmail'),
+      currency: document.getElementById('settingCurrency'),
+      checkout_mode: document.getElementById('settingCheckoutMode')
+    };
+
+    function cleanList(value) {
+      return value.split(',').map(item => item.trim()).filter(Boolean);
+    }
+
+    function ensureSiteSettings() {
+      const settings = state.catalog.site_settings;
+      settings.media_slots = settings.media_slots || {
+        hero: 'images/lifestyle-hero-campaign.jpg',
+        vyro_gear_door: 'images/lifestyle-vyro-gear-campaign.jpg',
+        true_nature_door: 'images/lifestyle-true-nature-campaign.jpg',
+        overhang_door: 'images/lifestyle-overhang-campaign.jpg',
+        overhang_promo: 'images/lifestyle-overhang-campaign.jpg',
+        true_nature_promo: 'images/lifestyle-true-nature-campaign.jpg'
+      };
+      settings.storefront_order = settings.storefront_order || {};
+      settings.storefront_order.new_drops = Array.isArray(settings.storefront_order.new_drops)
+        ? settings.storefront_order.new_drops
+        : state.catalog.products.slice(0, 6).map(product => product.id);
+      settings.storefront_order.best_sellers = Array.isArray(settings.storefront_order.best_sellers)
+        ? settings.storefront_order.best_sellers
+        : state.catalog.products.filter(product => product.featured).map(product => product.id);
+    }
+
+    function ensurePrintify(product) {
+      product.printify = product.printify || {};
+      product.printify.product_id = product.printify.product_id ?? product.printify_product_id ?? null;
+      product.printify.product_url = product.printify.product_url ?? product.printify_url ?? null;
+      product.printify.variants = Array.isArray(product.printify.variants) ? product.printify.variants : [];
+      return product.printify;
+    }
+
+    function rebuildVariantRows(product) {
+      const sizes = product.sizes?.length ? product.sizes : ['One Size'];
+      const colors = product.colors?.length ? product.colors : ['Default'];
+      const existing = ensurePrintify(product).variants || [];
+      product.printify.variants = colors.flatMap(color => sizes.map(size => {
+        const match = existing.find(row => row.size === size && row.color === color);
+        return {
+          size,
+          color,
+          variant_id: match?.variant_id || null,
+          url: match?.url || null
+        };
+      }));
+    }
+
+    async function loadCatalog() {
+      const response = await fetch('data/catalog.json', { cache: 'no-store' });
+      state.catalog = await response.json();
+      ensureSiteSettings();
+      state.catalog.products.forEach(product => {
+        ensurePrintify(product);
+        if (!product.printify.variants.length) rebuildVariantRows(product);
+      });
+      state.selectedProductId = state.catalog.products[0]?.id || null;
+      renderAll();
+    }
+
+    function renderAll() {
+      renderDashboard();
+      renderProductList();
+      renderProductEditor();
+      renderLayout();
+      renderPrintifyMatch();
+      renderSettings();
+    }
+
+    function renderDashboard() {
+      const products = state.catalog.products;
+      document.getElementById('productCount').textContent = products.length;
+      document.getElementById('liveCount').textContent = products.filter(product => product.printify_url_verified).length;
+      document.getElementById('featuredCount').textContent = products.filter(product => product.featured).length;
+    }
+
+    async function loadAnalytics() {
+      const cards = document.getElementById('analyticsCards');
+      cards.innerHTML = '';
+      try {
+        const response = await fetch('data/analytics.json', { cache: 'no-store' });
+        if (!response.ok) throw new Error('No analytics feed');
+        const analytics = await response.json();
+        if (analytics.connected === false) throw new Error('Analytics not connected');
+        document.getElementById('analyticsNotice').textContent = `Visitor data loaded from data/analytics.json. Last updated: ${analytics.updated_at || 'unknown'}.`;
+        [
+          ['Visitors', analytics.visitors],
+          ['Page views', analytics.page_views],
+          ['Top page', analytics.top_page],
+          ['Top source', analytics.top_source]
+        ].forEach(([label, value]) => {
+          const card = document.createElement('article');
+          card.className = 'panel span-3';
+          card.innerHTML = `<div class="panel-body metric"><div class="value">${value ?? '-'}</div><div class="label">${label}</div></div>`;
+          cards.appendChild(card);
+        });
+      } catch {
+        document.getElementById('analyticsNotice').textContent = 'Visitor tracking is not connected yet. This page will show real traffic after an analytics provider or Netlify function publishes data/analytics.json.';
+      }
+    }
+
+    function renderProductList() {
+      const list = document.getElementById('productList');
+      const query = document.getElementById('productSearch').value.trim().toLowerCase();
+      const products = state.catalog.products.filter(product => {
+        return !query || [product.name, product.id, product.collection, product.description].join(' ').toLowerCase().includes(query);
+      });
+      list.innerHTML = '';
+      products.forEach(product => {
+        const button = document.createElement('button');
+        button.className = `product-row ${product.id === state.selectedProductId ? 'active' : ''}`;
+        button.type = 'button';
+        button.innerHTML = `
+          <img src="${product.image}" alt="">
+          <span><strong>${product.name}</strong><span>${product.collection} · $${product.price}</span></span>
+        `;
+        button.addEventListener('click', () => {
+          state.selectedProductId = product.id;
+          renderProductList();
+          renderProductEditor();
+        });
+        list.appendChild(button);
+      });
+    }
+
+    function selectedProduct() {
+      return state.catalog.products.find(product => product.id === state.selectedProductId);
+    }
+
+    function renderProductEditor() {
+      const product = selectedProduct();
+      document.getElementById('noProduct').classList.toggle('hidden', Boolean(product));
+      document.getElementById('productEditor').classList.toggle('hidden', !product);
+      if (!product) return;
+
+      ensurePrintify(product);
+      productFields.collection.innerHTML = state.catalog.collections.map(collection => `<option value="${collection.id}">${collection.name}</option>`).join('');
+      productFields.id.value = product.id || '';
+      productFields.name.value = product.name || '';
+      productFields.collection.value = product.collection || '';
+      productFields.price.value = product.price ?? 0;
+      productFields.status.value = product.status || 'draft';
+      productFields.featured.value = String(Boolean(product.featured));
+      productFields.image.value = product.image || '';
+      productFields.description.value = product.description || '';
+      productFields.sizes.value = (product.sizes || []).join(', ');
+      productFields.colors.value = (product.colors || []).join(', ');
+      productFields.printifyId.value = product.printify.product_id || product.printify_product_id || '';
+      productFields.printifyUrl.value = product.printify.product_url || product.printify_url || '';
+      productFields.printifyVerified.value = String(Boolean(product.printify_url_verified));
+
+      updateProductPreview(product);
+      renderVariantTable(product);
+    }
+
+    function updateProductPreview(product = selectedProduct()) {
+      if (!product) return;
+      document.getElementById('previewImage').src = product.image || '';
+      document.getElementById('previewName').textContent = product.name || '';
+      document.getElementById('previewDescription').textContent = product.description || '';
+      document.getElementById('previewCollectionBadge').textContent = product.collection || '';
+      document.getElementById('previewCardName').textContent = product.name || '';
+      document.getElementById('previewCardDescription').textContent = product.description || '';
+      document.getElementById('previewCardPrice').textContent = `$${product.price ?? 0}`;
+      document.getElementById('previewCardButton').textContent = product.printify_url_verified ? 'Buy on Printify' : 'Coming Soon';
+      document.getElementById('previewBadges').innerHTML = `
+        <span class="badge">${product.collection}</span>
+        <span class="badge ${product.printify_url_verified ? 'live' : 'draft'}">${product.printify_url_verified ? 'Printify live' : 'Coming Soon'}</span>
+        <span class="badge ${product.featured ? 'live' : ''}">${product.featured ? 'Featured' : 'Not featured'}</span>
+      `;
+    }
+
+    function productName(productId) {
+      return state.catalog.products.find(product => product.id === productId)?.name || productId;
+    }
+
+    function moveOrderItem(listName, index, direction) {
+      const list = state.catalog.site_settings.storefront_order[listName];
+      const nextIndex = index + direction;
+      if (nextIndex < 0 || nextIndex >= list.length) return;
+      [list[index], list[nextIndex]] = [list[nextIndex], list[index]];
+      renderLayout();
+    }
+
+    function removeOrderItem(listName, index) {
+      state.catalog.site_settings.storefront_order[listName].splice(index, 1);
+      renderLayout();
+    }
+
+    function addSelectedToOrder(listName) {
+      const product = selectedProduct();
+      if (!product) return;
+      const list = state.catalog.site_settings.storefront_order[listName];
+      if (!list.includes(product.id)) list.push(product.id);
+      renderLayout();
+    }
+
+    function renderOrderList(listName, elementId) {
+      const list = state.catalog.site_settings.storefront_order[listName];
+      const target = document.getElementById(elementId);
+      target.innerHTML = '';
+      list.forEach((productId, index) => {
+        const row = document.createElement('div');
+        row.className = 'order-row';
+        row.innerHTML = `
+          <div><strong>${productName(productId)}</strong><p class="subtle">${productId}</p></div>
+          <div class="order-tools">
+            <button class="icon-btn" type="button" aria-label="Move up">↑</button>
+            <button class="icon-btn" type="button" aria-label="Move down">↓</button>
+            <button class="icon-btn" type="button" aria-label="Remove">×</button>
+          </div>
+        `;
+        const [up, down, remove] = row.querySelectorAll('button');
+        up.addEventListener('click', () => moveOrderItem(listName, index, -1));
+        down.addEventListener('click', () => moveOrderItem(listName, index, 1));
+        remove.addEventListener('click', () => removeOrderItem(listName, index));
+        target.appendChild(row);
+      });
+    }
+
+    function renderLayout() {
+      ensureSiteSettings();
+      renderOrderList('new_drops', 'newDropsOrder');
+      renderOrderList('best_sellers', 'bestSellersOrder');
+
+      const labels = {
+        hero: 'Hero background',
+        vyro_gear_door: 'Vyro Gear door',
+        true_nature_door: 'True Nature door',
+        overhang_door: 'Overhang door',
+        overhang_promo: 'Overhang promo',
+        true_nature_promo: 'True Nature promo'
+      };
+      const editor = document.getElementById('mediaSlotEditor');
+      editor.innerHTML = '';
+      Object.entries(state.catalog.site_settings.media_slots).forEach(([slot, value]) => {
+        const card = document.createElement('article');
+        card.className = 'os-card span-4';
+        card.innerHTML = `
+          <img class="media-preview" src="${value}" alt="">
+          <label>${labels[slot] || slot}<input data-media-slot="${slot}" value="${value}"></label>
+        `;
+        editor.appendChild(card);
+      });
+    }
+
+    async function loadPrintifyCatalog(path = 'data/printify-catalog.json') {
+      try {
+        const response = await fetch(path, { cache: 'no-store' });
+        if (!response.ok) throw new Error('No Printify catalog feed');
+        state.printifyCatalog = await response.json();
+        if (state.printifyCatalog.connected === false) {
+          document.getElementById('printifyNotice').textContent = 'Printify catalog sync is not connected yet. Use the example file as the shape for the future Printify export/API sync.';
+        } else {
+          document.getElementById('printifyNotice').textContent = `Loaded ${state.printifyCatalog.products?.length || 0} Printify products from ${path}.`;
+        }
+      } catch {
+        state.printifyCatalog = { products: [] };
+        document.getElementById('printifyNotice').textContent = 'No Printify catalog feed is connected yet. Use the example file as the shape for the future Printify export/API sync.';
+      }
+      renderPrintifyMatch();
+    }
+
+    function renderPrintifyMatch() {
+      const list = document.getElementById('printifyStoreList');
+      if (!list) return;
+      list.innerHTML = '';
+      state.catalog.products.forEach(product => {
+        const button = document.createElement('button');
+        button.className = `product-row ${product.id === state.selectedProductId ? 'active' : ''}`;
+        button.type = 'button';
+        button.innerHTML = `
+          <img src="${product.image}" alt="">
+          <span><strong>${product.name}</strong><span>${product.printify_product_id || 'No Printify ID yet'}</span></span>
+        `;
+        button.addEventListener('click', () => {
+          state.selectedProductId = product.id;
+          renderProductList();
+          renderProductEditor();
+          renderPrintifyMatch();
+        });
+        list.appendChild(button);
+      });
+
+      const tbody = document.getElementById('printifyCatalogTable');
+      tbody.innerHTML = '';
+      (state.printifyCatalog?.products || []).forEach(item => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${item.title || '-'}</td>
+          <td>${item.printify_product_id || '-'}</td>
+          <td>${item.status || '-'}</td>
+          <td>${item.url ? `<a href="${item.url}" target="_blank" rel="noopener">Open</a>` : '-'}</td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    function renderVariantTable(product) {
+      const tbody = document.getElementById('variantTable');
+      tbody.innerHTML = '';
+      ensurePrintify(product).variants.forEach((variant, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${variant.size}</td>
+          <td>${variant.color}</td>
+          <td><input data-variant-index="${index}" data-variant-field="variant_id" value="${variant.variant_id || ''}"></td>
+          <td><input data-variant-index="${index}" data-variant-field="url" value="${variant.url || ''}" placeholder="https://..."></td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    function updateSelectedProduct() {
+      const product = selectedProduct();
+      if (!product) return;
+      const oldId = product.id;
+      product.id = productFields.id.value.trim();
+      product.name = productFields.name.value.trim();
+      product.collection = productFields.collection.value;
+      product.brand = product.collection;
+      product.price = Number(productFields.price.value || 0);
+      product.status = productFields.status.value;
+      product.featured = productFields.featured.value === 'true';
+      product.image = productFields.image.value.trim();
+      product.description = productFields.description.value.trim();
+      product.sizes = cleanList(productFields.sizes.value);
+      product.colors = cleanList(productFields.colors.value);
+      product.printify_product_id = productFields.printifyId.value.trim() || null;
+      product.printify_url = productFields.printifyUrl.value.trim() || null;
+      product.printify_url_verified = productFields.printifyVerified.value === 'true';
+      ensurePrintify(product).product_id = product.printify_product_id;
+      product.printify.product_url = product.printify_url;
+      if (oldId !== product.id) state.selectedProductId = product.id;
+      renderDashboard();
+      renderProductList();
+      updateProductPreview(product);
+      renderLayout();
+      renderPrintifyMatch();
+    }
+
+    function renderSettings() {
+      const settings = state.catalog.site_settings;
+      Object.entries(settingFields).forEach(([key, input]) => {
+        input.value = settings[key] ?? '';
+      });
+
+      const editor = document.getElementById('collectionsEditor');
+      editor.innerHTML = '';
+      state.catalog.collections.forEach((collection, index) => {
+        const panel = document.createElement('article');
+        panel.className = 'panel span-4';
+        panel.innerHTML = `
+          <div class="panel-body">
+            <div class="form-grid">
+              <label>ID <input data-collection-index="${index}" data-field="id" value="${collection.id}"></label>
+              <label>Name <input data-collection-index="${index}" data-field="name" value="${collection.name}"></label>
+              <label class="span-full">Tagline <input data-collection-index="${index}" data-field="tagline" value="${collection.tagline}"></label>
+              <label class="span-full">Description <textarea data-collection-index="${index}" data-field="description">${collection.description}</textarea></label>
+            </div>
+          </div>
+        `;
+        editor.appendChild(panel);
+      });
+    }
+
+    function updateSettings(event) {
+      const target = event.target;
+      if (target.dataset.collectionIndex) {
+        const collection = state.catalog.collections[Number(target.dataset.collectionIndex)];
+        collection[target.dataset.field] = target.value;
+        return;
+      }
+      Object.entries(settingFields).forEach(([key, input]) => {
+        if (input === target) state.catalog.site_settings[key] = target.value;
+      });
+    }
+
+    function downloadCatalog() {
+      const blob = new Blob([JSON.stringify(state.catalog, null, 2) + '\n'], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'catalog.json';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    function importCatalog(file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        state.catalog = JSON.parse(reader.result);
+        ensureSiteSettings();
+        state.catalog.products.forEach(ensurePrintify);
+        state.selectedProductId = state.catalog.products[0]?.id || null;
+        renderAll();
+      };
+      reader.readAsText(file);
+    }
+
+    function duplicateProduct() {
+      const product = selectedProduct();
+      if (!product) return;
+      const clone = JSON.parse(JSON.stringify(product));
+      clone.id = `${product.id}-copy`;
+      clone.name = `${product.name} Copy`;
+      clone.status = 'draft';
+      clone.featured = false;
+      clone.printify_product_id = null;
+      clone.printify_url = null;
+      clone.printify_url_verified = false;
+      clone.printify.product_id = null;
+      clone.printify.product_url = null;
+      clone.printify.variants.forEach(variant => {
+        variant.variant_id = null;
+        variant.url = null;
+      });
+      state.catalog.products.unshift(clone);
+      state.selectedProductId = clone.id;
+      renderAll();
+    }
+
+    function drawExtractionImage() {
+      const canvas = document.getElementById('extractCanvas');
+      const context = canvas.getContext('2d', { willReadFrequently: true });
+      if (!extraction.image) {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        return;
+      }
+
+      const maxSize = 900;
+      const scale = Math.min(maxSize / extraction.image.width, maxSize / extraction.image.height, 1);
+      extraction.width = Math.round(extraction.image.width * scale);
+      extraction.height = Math.round(extraction.image.height * scale);
+      canvas.width = extraction.width;
+      canvas.height = extraction.height;
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      context.drawImage(extraction.image, 0, 0, extraction.width, extraction.height);
+      extraction.originalPixels = context.getImageData(0, 0, extraction.width, extraction.height);
+    }
+
+    function setPickedColor(rgb) {
+      extraction.selectedColor = rgb;
+      document.getElementById('pickedColor').style.background = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+    }
+
+    function loadExtractionFile(file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const image = new Image();
+        image.onload = () => {
+          extraction.image = image;
+          drawExtractionImage();
+          const name = file.name.replace(/\.[^.]+$/, '');
+          document.getElementById('extractFileName').value = `${name}-transparent.png`;
+          document.getElementById('applyExtraction').disabled = false;
+          document.getElementById('downloadTransparent').disabled = false;
+          document.getElementById('useTransparentPath').disabled = false;
+        };
+        image.src = reader.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function pickCanvasColor(event) {
+      if (!extraction.originalPixels) return;
+      const canvas = document.getElementById('extractCanvas');
+      const rect = canvas.getBoundingClientRect();
+      const x = Math.floor((event.clientX - rect.left) * (canvas.width / rect.width));
+      const y = Math.floor((event.clientY - rect.top) * (canvas.height / rect.height));
+      const context = canvas.getContext('2d', { willReadFrequently: true });
+      const pixel = context.getImageData(x, y, 1, 1).data;
+      setPickedColor([pixel[0], pixel[1], pixel[2]]);
+      applyExtraction();
+    }
+
+    function applyExtraction() {
+      if (!extraction.originalPixels) return;
+      const canvas = document.getElementById('extractCanvas');
+      const context = canvas.getContext('2d', { willReadFrequently: true });
+      const tolerance = Number(document.getElementById('extractTolerance').value);
+      const softness = Number(document.getElementById('extractSoftness').value);
+      const output = new ImageData(new Uint8ClampedArray(extraction.originalPixels.data), extraction.width, extraction.height);
+      const [red, green, blue] = extraction.selectedColor;
+
+      for (let index = 0; index < output.data.length; index += 4) {
+        const distance = Math.sqrt(
+          Math.pow(output.data[index] - red, 2) +
+          Math.pow(output.data[index + 1] - green, 2) +
+          Math.pow(output.data[index + 2] - blue, 2)
+        );
+
+        if (distance <= tolerance) {
+          output.data[index + 3] = 0;
+        } else if (softness > 0 && distance <= tolerance + softness) {
+          const fade = (distance - tolerance) / softness;
+          output.data[index + 3] = Math.round(output.data[index + 3] * fade);
+        }
+      }
+
+      context.putImageData(output, 0, 0);
+    }
+
+    function downloadTransparentImage() {
+      const canvas = document.getElementById('extractCanvas');
+      const link = document.createElement('a');
+      link.href = canvas.toDataURL('image/png');
+      link.download = document.getElementById('extractFileName').value.trim() || 'transparent-product.png';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    }
+
+    function useTransparentPathOnProduct() {
+      const product = selectedProduct();
+      const filename = document.getElementById('extractFileName').value.trim();
+      if (!product || !filename) return;
+      product.image = `images/${filename}`;
+      productFields.image.value = product.image;
+      renderProductEditor();
+      renderProductList();
+    }
+
+    document.querySelectorAll('nav button').forEach(button => {
+      button.addEventListener('click', () => {
+        state.activeView = button.dataset.view;
+        document.querySelectorAll('nav button').forEach(item => item.classList.toggle('active', item === button));
+        Object.entries(views).forEach(([key, view]) => view.classList.toggle('hidden', key !== state.activeView));
+        document.getElementById('pageTitle').textContent = titles[state.activeView][0];
+        document.getElementById('pageSubtitle').textContent = titles[state.activeView][1];
+      });
+    });
+
+    Object.values(productFields).forEach(input => {
+      input.addEventListener('input', updateSelectedProduct);
+      input.addEventListener('change', updateSelectedProduct);
+    });
+    document.getElementById('productSearch').addEventListener('input', renderProductList);
+    document.getElementById('downloadCatalog').addEventListener('click', downloadCatalog);
+    document.getElementById('importCatalog').addEventListener('change', event => {
+      if (event.target.files?.[0]) importCatalog(event.target.files[0]);
+    });
+    document.getElementById('duplicateProduct').addEventListener('click', duplicateProduct);
+    document.getElementById('rebuildVariants').addEventListener('click', () => {
+      const product = selectedProduct();
+      if (!product) return;
+      product.sizes = cleanList(productFields.sizes.value);
+      product.colors = cleanList(productFields.colors.value);
+      rebuildVariantRows(product);
+      renderProductEditor();
+    });
+    document.getElementById('variantTable').addEventListener('input', event => {
+      const product = selectedProduct();
+      const index = Number(event.target.dataset.variantIndex);
+      const field = event.target.dataset.variantField;
+      if (!product || Number.isNaN(index) || !field) return;
+      product.printify.variants[index][field] = event.target.value.trim() || null;
+    });
+    document.getElementById('settingsView').addEventListener('input', updateSettings);
+    document.getElementById('layoutView').addEventListener('input', event => {
+      const slot = event.target.dataset.mediaSlot;
+      if (!slot) return;
+      state.catalog.site_settings.media_slots[slot] = event.target.value.trim();
+      renderLayout();
+    });
+    document.querySelectorAll('[data-order-list]').forEach(button => {
+      button.addEventListener('click', () => addSelectedToOrder(button.dataset.orderList));
+    });
+    document.getElementById('loadPrintifyExample').addEventListener('click', () => loadPrintifyCatalog('data/printify-catalog.example.json'));
+    document.getElementById('reloadAnalytics').addEventListener('click', loadAnalytics);
+    document.getElementById('extractImageFile').addEventListener('change', event => {
+      if (event.target.files?.[0]) loadExtractionFile(event.target.files[0]);
+    });
+    document.getElementById('extractCanvas').addEventListener('click', pickCanvasColor);
+    document.getElementById('applyExtraction').addEventListener('click', applyExtraction);
+    document.getElementById('extractTolerance').addEventListener('input', applyExtraction);
+    document.getElementById('extractSoftness').addEventListener('input', applyExtraction);
+    document.getElementById('downloadTransparent').addEventListener('click', downloadTransparentImage);
+    document.getElementById('useTransparentPath').addEventListener('click', useTransparentPathOnProduct);
+    setPickedColor([255, 255, 255]);
+
+    loadCatalog().then(() => {
+      loadAnalytics();
+      loadPrintifyCatalog();
+    }).catch(error => {
+      document.body.innerHTML = `<main style="padding:32px"><h1>Admin failed to load</h1><p>${error.message}</p></main>`;
+    });
+  </script>
+</body>
+</html>
